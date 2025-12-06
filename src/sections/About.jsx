@@ -5,7 +5,7 @@ import SectionWrapper from '../components/SectionWrapper';
 
 const About = () => {
     const highlights = [
-        { icon: <Code className="w-6 h-6" />, title: '5+ Years Experience', desc: 'In full-stack development' },
+        { icon: <Code className="w-6 h-6" />, title: '4.9 Years Experience', desc: 'In full-stack development' },
         { icon: <Server className="w-6 h-6" />, title: 'API Development', desc: 'Robust RESTful APIs' },
         { icon: <Database className="w-6 h-6" />, title: 'Scalable Systems', desc: 'Optimized backend architecture' },
         { icon: <Zap className="w-6 h-6" />, title: 'Clean Code', desc: 'Maintainable & efficient' },
@@ -46,7 +46,7 @@ const About = () => {
                     </h2>
 
                     <p className="text-gray-600 dark:text-gray-300 text-lg mb-6 leading-relaxed">
-                        I am a passionate PHP & JavaScript Developer with a strong focus on building scalable backend systems and modern web applications. With over 5 years of experience, I specialize in creating robust APIs and efficient database architectures.
+                        I am a passionate Full Stack Developer with a strong focus on building scalable backend systems and modern web applications. With 4.9 years of experience, I specialize in creating robust APIs and efficient database architectures.
                     </p>
 
                     <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 leading-relaxed">

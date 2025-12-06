@@ -84,92 +84,98 @@
     "projects": [
         {
             "id": 1,
-            "title": "Workplace Management System",
+            "title": "Workplace and Service Management System",
             "description": "A comprehensive solution for managing workplace resources, employee scheduling, and facility maintenance requests.",
             "tags": [
                 "Laravel",
-                "Vue.js",
-                "TailwindCSS",
+                "Angular",
                 "MySQL"
             ],
             "icon": "🏢",
-            "demoUrl": "#",
-            "githubUrl": "#"
+            "demoUrl": null,
+            "githubUrl": null
         },
         {
             "id": 2,
-            "title": "E-commerce API Backend",
-            "description": "Scalable RESTful API for a multi-vendor e-commerce platform featuring secure authentication, payment processing, and inventory management.",
+            "title": "Inventory Management System with POS",
+            "description": "Inventory Management System with Point of Sale (POS) features.",
             "tags": [
-                "PHP",
-                "CodeIgniter",
-                "REST API",
-                "Stripe"
+                "Laravel",
+                "Vue.js",
+                "Bootstrap",
+                "MySQL"
             ],
             "icon": "🛒",
-            "demoUrl": "#",
-            "githubUrl": "#"
+            "demoUrl": null,
+            "githubUrl": null
         },
         {
             "id": 3,
-            "title": "Task Management System",
-            "description": "Real-time task collaboration tool with Kanban boards, team chat, and progress tracking features.",
+            "title": "Software Development Management System",
+            "description": "A comprehensive solution for managing software development projects, including task tracking, progress monitoring, and team collaboration.",
             "tags": [
-                "React",
-                "Firebase",
-                "Tailwind",
-                "Framer Motion"
+                "Laravel",
+                "Bootstrap",
+                "jQuery",
+                "MySQL"
             ],
             "icon": "✅",
-            "demoUrl": "#",
-            "githubUrl": "#"
+            "demoUrl": null,
+            "githubUrl": null
         },
         {
             "id": 4,
-            "title": "Portfolio Website",
-            "description": "Modern developer portfolio featuring dark mode, smooth animations, and responsive design.",
+            "title": "School or University Management System",
+            "description": "A comprehensive solution for managing school or university resources, including student records, course management, and attendance tracking.",
             "tags": [
-                "React",
-                "Tailwind",
-                "Framer Motion"
+                "CodeIgniter",
+                "Bootstrap",
+                "jQuery",
+                "MySQL"
             ],
-            "icon": "🎨",
-            "demoUrl": "#",
-            "githubUrl": "#"
+            "icon": "🎓",
+            "demoUrl": null,
+            "githubUrl": null
+        },
+        {
+            "id": 5,
+            "title": "Sports Clubs Management System",
+            "description": "A comprehensive solution for managing sports clubs, including member management, event scheduling, and facility booking.",
+            "tags": [
+                "CodeIgniter",
+                "Bootstrap",
+                "jQuery",
+                "MySQL"
+            ],
+            "icon": "🏈",
+            "demoUrl": null,
+            "githubUrl": null
         }
     ],
     "experiences": [
         {
             "id": 1,
-            "role": "Senior PHP Developer",
-            "company": "Tech Solutions Inc.",
-            "duration": "2021 - Present",
+            "role": "Senior Web Developer",
+            "company": "Sourcecube Technologies Pvt Ltd",
+            "duration": "2023 - 2025",
             "description": [
-                "Led a team of 5 developers in building scalable backend systems using Laravel.",
-                "Optimized database queries reducing response time by 40%.",
+                "developed in building and scaling backend systems using Laravel.",
+                "Optimized database queries reducing response time",
                 "Implemented RESTful APIs for mobile and web applications.",
                 "Mentored junior developers and conducted code reviews."
             ]
         },
         {
             "id": 2,
-            "role": "Full Stack Developer",
-            "company": "WebCreators Studio",
-            "duration": "2019 - 2021",
-            "description": [
-                "Developed custom e-commerce solutions using CodeIgniter and WooCommerce.",
-                "Built interactive frontend components with jQuery and Vue.js.",
-                "Integrated third-party payment gateways (Stripe, PayPal).",
-                "Managed server deployment and maintenance."
-            ]
-        },
-        {
-            "id": 3,
             "role": "Junior Web Developer",
-            "company": "Digital Agency",
-            "duration": "2018 - 2019",
+            "company": "Potenza Global Solutions Pvt Ltd.",
+            "duration": "2021 - 2023",
             "description": [
-                "Assisted in the development of client websites. Fixed bugs and maintained existing codebases."
+                "Assisted in the development of client websites.",
+                "Fixed bugs and maintained existing codebases.",
+                "Learned and implemented new technologies and frameworks.",
+                "Collaborated with team members to ensure smooth project execution.",
+                "Implemented RESTful APIs for mobile and web applications."
             ]
         }
     ]

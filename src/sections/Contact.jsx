@@ -41,18 +41,18 @@ const Contact = () => {
 
                     <div className="space-y-6">
                         <a
-                            href="mailto:contact@taufiqsaiyed.dev"
+                            href="mailto:saiyedtoufiq@gmail.com"
                             className="flex items-center space-x-4 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                         >
                             <div className="w-12 h-12 bg-indigo-50 dark:bg-indigo-900/30 rounded-full flex items-center justify-center text-indigo-600 dark:text-indigo-400">
                                 <Mail className="w-6 h-6" />
                             </div>
-                            <span className="text-lg">contact@taufiqsaiyed.dev</span>
+                            <span className="text-lg">saiyedtoufiq@gmail.com</span>
                         </a>
 
                         <div className="flex gap-4 pt-4">
                             <a
-                                href="https://github.com"
+                                href="https://github.com/saiyedtoufiq"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 transition-all duration-300"
@@ -60,7 +60,7 @@ const Contact = () => {
                                 <Github className="w-6 h-6" />
                             </a>
                             <a
-                                href="https://linkedin.com"
+                                href="https://www.linkedin.com/in/toufiq-saiyed-6799b4b6"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 transition-all duration-300"
