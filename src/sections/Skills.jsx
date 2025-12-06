@@ -1,45 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SectionWrapper from '../components/SectionWrapper';
+import { skills } from '../services/data.json';
 
 const Skills = () => {
-    const skillCategories = [
-        {
-            title: 'Backend',
-            skills: [
-                { name: 'PHP', icon: '🐘' },
-                { name: 'Laravel', icon: '🛠️' },
-                { name: 'CodeIgniter', icon: '🔥' },
-                { name: 'REST APIs', icon: '🔌' },
-            ],
-        },
-        {
-            title: 'Frontend',
-            skills: [
-                { name: 'JavaScript', icon: '⚡' },
-                { name: 'jQuery', icon: '💲' },
-                { name: 'Bootstrap', icon: '🎨' },
-                { name: 'React', icon: '⚛️' },
-                { name: 'TailwindCSS', icon: '🌊' },
-            ],
-        },
-        {
-            title: 'Database',
-            skills: [
-                { name: 'MySQL', icon: '🐬' },
-                { name: 'PostgreSQL', icon: '🐘' },
-            ],
-        },
-        {
-            title: 'Tools',
-            skills: [
-                { name: 'Git', icon: '📦' },
-                { name: 'Postman', icon: '🚀' },
-                { name: 'VS Code', icon: '📝' },
-            ],
-        },
-    ];
-
     return (
         <SectionWrapper id="skills" className="bg-gray-50 dark:bg-gray-800/50">
             <div className="text-center mb-16">
@@ -63,9 +27,9 @@ const Skills = () => {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {skillCategories.map((category, catIndex) => (
+                {skills.map((category, catIndex) => (
                     <motion.div
-                        key={category.title}
+                        key={category.category}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -73,10 +37,10 @@ const Skills = () => {
                         className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100 dark:border-gray-700"
                     >
                         <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 border-b border-gray-100 dark:border-gray-700 pb-2">
-                            {category.title}
+                            {category.category}
                         </h3>
                         <div className="space-y-4">
-                            {category.skills.map((skill, skillIndex) => (
+                            {category.items.map((skill, skillIndex) => (
                                 <motion.div
                                     key={skill.name}
                                     whileHover={{ x: 5 }}

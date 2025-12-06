@@ -2,42 +2,43 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Calendar } from 'lucide-react';
 import SectionWrapper from '../components/SectionWrapper';
+import { experiences } from '../services/data.json';
 
 const Experience = () => {
-    const experiences = [
-        {
-            title: 'Senior PHP Developer',
-            company: 'Tech Solutions Inc.',
-            duration: '2021 - Present',
-            description: [
-                'Led a team of 5 developers in building scalable backend systems using Laravel.',
-                'Optimized database queries reducing response time by 40%.',
-                'Implemented RESTful APIs for mobile and web applications.',
-                'Mentored junior developers and conducted code reviews.',
-            ],
-        },
-        {
-            title: 'Full Stack Developer',
-            company: 'WebCreators Studio',
-            duration: '2019 - 2021',
-            description: [
-                'Developed custom e-commerce solutions using CodeIgniter and WooCommerce.',
-                'Built interactive frontend components with jQuery and Vue.js.',
-                'Integrated third-party payment gateways (Stripe, PayPal).',
-                'Managed server deployment and maintenance.',
-            ],
-        },
-        {
-            title: 'Junior Web Developer',
-            company: 'Digital Agency',
-            duration: '2018 - 2019',
-            description: [
-                'Assisted in developing responsive websites using HTML, CSS, and Bootstrap.',
-                'Fixed bugs and implemented minor features in existing projects.',
-                'Collaborated with designers to implement UI/UX improvements.',
-            ],
-        },
-    ];
+    // const experiences = [
+    //     {
+    //         title: 'Senior PHP Developer',
+    //         company: 'Tech Solutions Inc.',
+    //         duration: '2021 - Present',
+    //         description: [
+    //             'Led a team of 5 developers in building scalable backend systems using Laravel.',
+    //             'Optimized database queries reducing response time by 40%.',
+    //             'Implemented RESTful APIs for mobile and web applications.',
+    //             'Mentored junior developers and conducted code reviews.',
+    //         ],
+    //     },
+    //     {
+    //         title: 'Full Stack Developer',
+    //         company: 'WebCreators Studio',
+    //         duration: '2019 - 2021',
+    //         description: [
+    //             'Developed custom e-commerce solutions using CodeIgniter and WooCommerce.',
+    //             'Built interactive frontend components with jQuery and Vue.js.',
+    //             'Integrated third-party payment gateways (Stripe, PayPal).',
+    //             'Managed server deployment and maintenance.',
+    //         ],
+    //     },
+    //     {
+    //         title: 'Junior Web Developer',
+    //         company: 'Digital Agency',
+    //         duration: '2018 - 2019',
+    //         description: [
+    //             'Assisted in developing responsive websites using HTML, CSS, and Bootstrap.',
+    //             'Fixed bugs and implemented minor features in existing projects.',
+    //             'Collaborated with designers to implement UI/UX improvements.',
+    //         ],
+    //     },
+    // ];
 
     return (
         <SectionWrapper id="experience" className="bg-gray-50 dark:bg-gray-800/50">
@@ -70,7 +71,7 @@ const Experience = () => {
                                 <div>
                                     <h3 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
                                         <Briefcase className="w-5 h-5 text-indigo-600" />
-                                        {exp.title}
+                                        {exp.role}
                                     </h3>
                                     <p className="text-indigo-600 dark:text-indigo-400 font-medium mt-1">
                                         {exp.company}
