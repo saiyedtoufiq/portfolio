@@ -2,8 +2,28 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download } from 'lucide-react';
 import Button from '../components/Button';
+import CV from '../assets/Toufiq-Rehman-Sayyed-CV.pdf';
 
 const Hero = () => {
+
+    const handleDownload = () => {
+        // Create a temporary anchor element
+        const link = document.createElement('a');
+        link.href = CV; // Set the file path
+        link.download = 'Toufiq-Rehman-Sayyed-CV.pdf'; // Set the desired download filename
+        link.style.display = 'none'; // Hide the link
+
+        // Append to the document body and trigger a click
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link); // Clean up the temporary link
+
+        // Execute the callback function after initiating the download
+        if (onDownloadComplete && typeof onDownloadComplete === 'function') {
+            onDownloadComplete();
+        }
+    };
+
     return (
         <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
             {/* Background Elements */}
@@ -34,7 +54,7 @@ const Hero = () => {
                         transition={{ delay: 0.3 }}
                         className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6"
                     >
-                        Taufiq <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">Saiyed</span>
+                        Toufiq Rehman<span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600">Sayyed</span>
                     </motion.h1>
 
                     <motion.h2
@@ -43,7 +63,7 @@ const Hero = () => {
                         transition={{ delay: 0.4 }}
                         className="text-2xl md:text-3xl text-gray-600 dark:text-gray-300 font-medium mb-6"
                     >
-                        PHP & JavaScript Developer
+                        Full Stack Developer
                     </motion.h2>
 
                     <motion.p
@@ -64,7 +84,7 @@ const Hero = () => {
                         <Button onClick={() => document.getElementById('projects').scrollIntoView()}>
                             View Projects <ArrowRight className="w-5 h-5" />
                         </Button>
-                        <Button variant="secondary">
+                        <Button variant="secondary" onClick={handleDownload}>
                             Download CV <Download className="w-5 h-5" />
                         </Button>
                     </motion.div>

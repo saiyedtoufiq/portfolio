@@ -41,22 +41,26 @@ const ProjectCard = ({ project, index }) => {
                 </div>
 
                 <div className="flex items-center gap-4 mt-auto">
-                    <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg transition-colors shadow-md hover:shadow-indigo-500/30"
-                    >
-                        <ExternalLink className="w-4 h-4" /> Demo
-                    </a>
-                    <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-indigo-500 dark:hover:border-indigo-500 transition-colors"
-                    >
-                        <Github className="w-4 h-4" /> Code
-                    </a>
+                    {project.demoUrl && (
+                        <a
+                            href={project.demoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg transition-colors shadow-md hover:shadow-indigo-500/30"
+                        >
+                            <ExternalLink className="w-4 h-4" /> Demo
+                        </a>
+                    )}
+                    {project.githubUrl && (
+                        <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-indigo-500 dark:hover:border-indigo-500 transition-colors"
+                        >
+                            <Github className="w-4 h-4" /> Code
+                        </a>
+                    )}
                 </div>
             </div>
         </motion.div>
