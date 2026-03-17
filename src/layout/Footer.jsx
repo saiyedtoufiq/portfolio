@@ -3,20 +3,20 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
     return (
-        <footer className="bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 py-8">
-            <div className="container-custom flex flex-col md:flex-row justify-between items-center">
-                <div className="mb-4 md:mb-0">
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">
+        <footer className="bg-body py-5 border-top border-secondary-subtle">
+            <div className="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div className="mb-3 mb-md-0">
+                    <p className="text-secondary small mb-0">
                         &copy; {new Date().getFullYear()} Taufiq Saiyed. All rights reserved.
                     </p>
                 </div>
 
-                <div className="flex space-x-6">
+                <div className="d-flex gap-4">
                     <a
                         href="https://github.com/saiyedtoufiq"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors"
+                        className="text-secondary link-primary transition"
                     >
                         <Github className="w-5 h-5" />
                     </a>
@@ -24,13 +24,13 @@ const Footer = () => {
                         href="https://linkedin.com/in/toufiq-saiyed-6799b4b6"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors"
+                        className="text-secondary link-primary transition"
                     >
                         <Linkedin className="w-5 h-5" />
                     </a>
                     <a
                         href="mailto:saiyedtoufiq@gmail.com"
-                        className="text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors"
+                        className="text-secondary link-primary transition"
                     >
                         <Mail className="w-5 h-5" />
                     </a>

@@ -3,6 +3,14 @@ import { motion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
 
 const ProjectCard = ({ project, index }) => {
+    // Mapping Tailwind colors to Bootstrap background utility classes
+    const colorMap = {
+        'bg-indigo-500': 'bg-primary',
+        'bg-emerald-500': 'bg-success',
+        'bg-cyan-500': 'bg-info',
+    };
+    const bsColor = colorMap[project.color] || 'bg-secondary';
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -10,43 +18,43 @@ const ProjectCard = ({ project, index }) => {
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
             whileHover={{ y: -10 }}
-            className="group relative bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-700 flex flex-col h-full"
+            className="card h-100 shadow-sm border-0 rounded-4 overflow-hidden"
         >
             {/* Image Placeholder / Gradient */}
-            <div className={`h-48 w-full ${project.color} relative overflow-hidden`}>
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-300" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-4xl">{project.icon}</span>
+            <div className={`card-img-top ${bsColor} position-relative overflow-hidden`} style={{ height: '12rem' }}>
+                <div className="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-25 hover:opacity-0 transition" />
+                <div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
+                    <span className="display-4">{project.icon}</span>
                 </div>
             </div>
 
-            <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+            <div className="card-body d-flex flex-column p-4">
+                <h3 className="card-title h5 fw-bold text-body mb-2">
                     {project.title}
                 </h3>
 
-                <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed flex-grow">
+                <p className="card-text text-secondary mb-4 small flex-grow-1">
                     {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="d-flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag) => (
                         <span
                             key={tag}
-                            className="px-3 py-1 text-xs font-medium rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300"
+                            className="badge bg-primary bg-opacity-10 text-primary rounded-pill px-3 py-2 fw-medium"
                         >
                             {tag}
                         </span>
                     ))}
                 </div>
 
-                <div className="flex items-center gap-4 mt-auto">
+                <div className="d-flex align-items-center gap-3 mt-auto">
                     {project.demoUrl && (
                         <a
                             href={project.demoUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg transition-colors shadow-md hover:shadow-indigo-500/30"
+                            className="btn btn-primary btn-sm d-flex align-items-center gap-2 rounded-3 px-3 shadow-sm"
                         >
                             <ExternalLink className="w-4 h-4" /> Demo
                         </a>
@@ -56,7 +64,7 @@ const ProjectCard = ({ project, index }) => {
                             href={project.githubUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-indigo-500 dark:hover:border-indigo-500 transition-colors"
+                            className="btn btn-outline-secondary btn-sm d-flex align-items-center gap-2 rounded-3 px-3"
                         >
                             <Github className="w-4 h-4" /> Code
                         </a>

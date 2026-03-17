@@ -6,19 +6,19 @@ import { experiences } from '../services/data.json';
 
 const Experience = () => {
     return (
-        <SectionWrapper id="experience" className="bg-gray-50 dark:bg-gray-800/50">
-            <div className="text-center mb-16">
+        <SectionWrapper id="experience" className="bg-body-tertiary">
+            <div className="text-center mb-5">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+                    className="display-6 fw-bold text-body mb-3"
                 >
-                    Work <span className="text-indigo-600">Experience</span>
+                    Work <span className="text-primary">Experience</span>
                 </motion.h2>
             </div>
 
-            <div className="max-w-3xl mx-auto">
+            <div className="mx-auto" style={{ maxWidth: '48rem' }}>
                 {experiences.map((exp, index) => (
                     <motion.div
                         key={index}
@@ -26,33 +26,33 @@ const Experience = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.1 }}
-                        className="relative pl-8 pb-12 last:pb-0 border-l-2 border-indigo-200 dark:border-indigo-900"
+                        className="position-relative ps-4 pb-5 border-start border-2 border-primary border-opacity-25"
                     >
                         {/* Timeline Dot */}
-                        <div className="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-indigo-600 border-4 border-white dark:border-gray-900" />
+                        <div className="position-absolute rounded-circle bg-primary border border-4 border-body" style={{ left: '-11px', top: '0', width: '20px', height: '20px' }} />
 
-                        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow">
-                            <div className="flex flex-wrap justify-between items-start mb-4">
+                        <div className="bg-body p-4 rounded-4 shadow-sm border border-secondary-subtle hover-shadow transition">
+                            <div className="d-flex flex-wrap justify-content-between align-items-start mb-4">
                                 <div>
-                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                                        <Briefcase className="w-5 h-5 text-indigo-600" />
+                                    <h3 className="h5 fw-bold text-body d-flex align-items-center gap-2 mb-1">
+                                        <Briefcase className="w-5 h-5 text-primary" />
                                         {exp.role}
                                     </h3>
-                                    <p className="text-indigo-600 dark:text-indigo-400 font-medium mt-1">
+                                    <p className="text-primary fw-medium mb-0">
                                         {exp.company}
                                     </p>
                                 </div>
-                                <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mt-2 sm:mt-0 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">
-                                    <Calendar className="w-4 h-4 mr-2" />
+                                <div className="d-flex align-items-center small text-secondary mt-2 mt-sm-0 bg-secondary bg-opacity-10 px-3 py-1 rounded-pill">
+                                    <Calendar className="w-4 h-4 me-2" />
                                     {exp.duration}
                                 </div>
                             </div>
 
-                            <ul className="space-y-2">
+                            <ul className="list-unstyled mb-0 d-flex flex-column gap-2">
                                 {exp.description.map((item, i) => (
-                                    <li key={i} className="flex items-start text-gray-600 dark:text-gray-300">
-                                        <span className="mr-2 mt-1.5 w-1.5 h-1.5 bg-indigo-600 rounded-full flex-shrink-0" />
-                                        <span className="leading-relaxed">{item}</span>
+                                    <li key={i} className="d-flex align-items-start text-secondary">
+                                        <span className="me-2 mt-2 bg-primary rounded-circle flex-shrink-0" style={{ width: '6px', height: '6px' }} />
+                                        <span style={{ lineHeight: '1.6' }}>{item}</span>
                                     </li>
                                 ))}
                             </ul>
