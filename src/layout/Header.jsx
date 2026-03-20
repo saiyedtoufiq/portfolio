@@ -38,29 +38,28 @@ const Header = () => {
 
     return (
         <React.Fragment>
-            <header className="fixed right-8 top-1/2 transform -translate-y-1/2 z-50 hidden md:block">
-                <nav className="flex flex-col items-end space-y-6">
+            <header className="position-fixed top-50 translate-middle-y end-0 me-4 z-3 d-none d-md-block">
+                <nav className="d-flex flex-column align-items-end gap-3">
                     <ThemeToggle />
-                    <div className="flex flex-col items-end space-y-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                    <div className="d-flex flex-column align-items-end gap-2 pt-3 border-top border-secondary-subtle">
                         {navLinks.map((link) => {
                             const isActive = activeSection === link.href.substring(1);
                             return (
                                 <a
                                     key={link.name}
                                     href={link.href}
-                                    className={`group flex items-center space-x-3 transition-all duration-300 ${isActive ? 'translate-x-0' : 'translate-x-0'
-                                        }`}
+                                    className="d-flex align-items-center gap-2 text-decoration-none transition"
                                 >
-                                    <span className={`text-sm font-medium transition-all duration-300 ${isActive
-                                        ? 'text-indigo-600 dark:text-indigo-400 font-bold'
-                                        : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+                                    <span className={`small transition ${isActive
+                                        ? 'text-primary fw-bold'
+                                        : 'text-secondary font-weight-medium'
                                         }`}>
                                         {link.name}
                                     </span>
-                                    <div className={`h-2 transition-all duration-300 rounded-full ${isActive
-                                        ? 'w-8 bg-indigo-600 dark:bg-indigo-400'
-                                        : 'w-2 bg-gray-300 dark:bg-gray-600 group-hover:bg-indigo-400 dark:group-hover:bg-indigo-500 group-hover:w-4'
-                                        }`} />
+                                    <div className={`transition rounded-pill ${isActive
+                                        ? 'bg-primary'
+                                        : 'bg-secondary'
+                                        }`} style={{ height: '2px', width: isActive ? '32px' : '16px' }} />
                                 </a>
                             );
                         })}
@@ -68,8 +67,8 @@ const Header = () => {
                 </nav>
             </header>
 
-            {/* Mobile simplified nav (optional) */}
-            <div className="md:hidden fixed top-4 right-4 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md p-2 rounded-lg shadow-lg z-50">
+            {/* Mobile simplified nav */}
+            <div className="d-md-none position-fixed top-0 end-0 mt-3 me-3 bg-body bg-opacity-75 p-2 rounded-3 shadow-sm z-3" style={{ backdropFilter: 'blur(8px)' }}>
                 <ThemeToggle />
             </div>
         </React.Fragment>

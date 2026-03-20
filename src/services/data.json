@@ -39,10 +39,6 @@
                 {
                     "name": "React",
                     "icon": "⚛️"
-                },
-                {
-                    "name": "TailwindCSS",
-                    "icon": "🌊"
                 }
             ]
         },
@@ -155,7 +151,7 @@
     "experiences": [
         {
             "id": 1,
-            "role": "Senior Web Developer",
+            "role": "Web Developer",
             "company": "Sourcecube Technologies Pvt Ltd",
             "duration": "2023 - 2025",
             "description": [
