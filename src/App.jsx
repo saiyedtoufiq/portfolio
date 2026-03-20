@@ -10,10 +10,10 @@ import Contact from './sections/Contact';
 
 function App() {
     return (
-        <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <div className="min-vh-100 d-flex flex-column bg-body-tertiary">
             <Header />
 
-            <main className="flex-grow">
+            <main>
                 <Hero />
                 <About />
                 <Skills />
