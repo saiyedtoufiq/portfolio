@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="container d-flex flex-column flex-md-row justify-content-between align-items-center">
                 <div className="mb-3 mb-md-0">
                     <p className="text-secondary small mb-0">
-                        &copy; {new Date().getFullYear()} Taufiq Saiyed. All rights reserved.
+                        &copy; {new Date().getFullYear()} Toufiq Sayyed. All rights reserved.
                     </p>
                 </div>
 
@@ -21,7 +21,7 @@ const Footer = () => {
                         <Github className="w-5 h-5" />
                     </a>
                     <a
-                        href="https://linkedin.com/in/toufiq-saiyed-6799b4b6"
+                        href="https://linkedin.com/in/toufiq-saiyed"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-secondary link-primary transition"
