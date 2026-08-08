@@ -6,22 +6,39 @@ import Button from '../components/Button';
 import { Col, Container, Row } from 'reactstrap';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [result, setResult] = useState("");
+  const [formValues, setFormValues] = useState({
     name: '',
     email: '',
     message: '',
+    access_key: '2aba64ba-eb7c-4dea-bb40-86e764c8fb81' // Replace with your actual access key
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! I will get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
+    try {
+      const formDataToSend = new FormData(e.target);
+      // ensure access_key is included (form doesn't have a hidden input for it)
+      formDataToSend.append('access_key', formValues.access_key);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend
+      });
+
+      const resJson = await response.json();
+      setResult(resJson.message || 'Message sent successfully');
+
+      // clear inputs (keep access_key)
+      setFormValues({ ...formValues, name: '', email: '', message: '' });
+    } catch (err) {
+      setResult('Something went wrong. Please try again later.');
+      console.error(err);
+    }
   };
 
   return (
@@ -96,7 +113,7 @@ const Contact = () => {
                     type="text"
                     id="name"
                     name="name"
-                    value={formData.name}
+                    value={formValues.name}
                     onChange={handleChange}
                     required
                     className="form-control form-control-lg bg-body text-body border-secondary-subtle focus-ring focus-ring-primary"
@@ -111,7 +128,7 @@ const Contact = () => {
                     type="email"
                     id="email"
                     name="email"
-                    value={formData.email}
+                    value={formValues.email}
                     onChange={handleChange}
                     required
                     className="form-control form-control-lg bg-body text-body border-secondary-subtle focus-ring focus-ring-primary"
@@ -125,7 +142,7 @@ const Contact = () => {
                   <textarea
                     id="message"
                     name="message"
-                    value={formData.message}
+                    value={formValues.message}
                     onChange={handleChange}
                     required
                     rows="4"
