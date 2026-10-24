@@ -82,7 +82,7 @@ const Contact = () => {
                     <Github className="w-6 h-6" />
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/toufiq-saiyed-6799b4b6"
+                    href="https://www.linkedin.com/in/toufiq-saiyed"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="d-flex align-items-center justify-content-center rounded-circle bg-body-tertiary text-secondary transition" style={{ width: '3rem', height: '3rem' }}
