@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { portfolioData, SkillItem } from '../../../data/portfolio';
 import ScrollVelocity from '../reactbits/ScrollVelocity';
 import SpotlightCard from '../reactbits/SpotlightCard';
-import { Server, Layout, Database, Wrench, CheckCircle } from 'lucide-react';
+import { Server, Layout, Database, Wrench, CheckCircle, Code, Layers, Cpu } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
 export default function Skills() {
@@ -13,13 +13,23 @@ export default function Skills() {
   const { isDark } = useTheme();
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
-  const categories = ['All', 'Backend Architecture', 'Frontend Engineering', 'Database & Caching', 'DevOps & Tooling'];
+  const categories = [
+    'All',
+    'Languages & Core',
+    'Backend Architecture',
+    'Frontend Engineering',
+    'Databases & Performance',
+    'System Architecture',
+    'Integrations & APIs',
+  ];
 
   const categoryIcons: Record<string, React.ReactNode> = {
-    'Backend Architecture': <Server className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />,
+    'Languages & Core': <Code className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />,
+    'Backend Architecture': <Server className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />,
     'Frontend Engineering': <Layout className="w-4 h-4 text-violet-600 dark:text-violet-400" />,
-    'Database & Caching': <Database className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />,
-    'DevOps & Tooling': <Wrench className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
+    'Databases & Performance': <Database className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
+    'System Architecture': <Cpu className="w-4 h-4 text-sky-600 dark:text-sky-400" />,
+    'Integrations & APIs': <Layers className="w-4 h-4 text-amber-600 dark:text-amber-400" />,
   };
 
   const allSkills: (SkillItem & { parentCategory: string })[] = skills.flatMap(cat =>
@@ -37,10 +47,10 @@ export default function Skills() {
       <div className="mb-16 sm:mb-20 overflow-hidden opacity-90 py-4 border-y border-slate-200 dark:border-white/5 bg-white/70 dark:bg-space-950/80">
         <ScrollVelocity
           texts={[
-            'PHP ✦ LARAVEL ✦ RESTFUL APIS ✦ MYSQL ✦ REACT ✦ NEXT.JS ✦ TYPESCRIPT ✦',
-            '✦ POSTGRESQL ✦ CODEIGNITER ✦ DOCKER ✦ REDIS ✦ GIT ✦ TAILWIND CSS ✦',
+            'REACT.JS ✦ LARAVEL ✦ TYPESCRIPT ✦ NODE.JS ✦ MYSQL ✦ POSTGRESQL ✦ REDIS QUEUES ✦',
+            '✦ MULTI-TENANT SAAS ✦ RESTFUL APIS ✦ STRIPE & PAYPAL ✦ GOOGLE & MS APIS ✦ RBAC ✦',
           ]}
-          velocity={55}
+          velocity={50}
           className="text-cyan-600/40 dark:text-cyan-300/40 font-mono text-2xl sm:text-4xl font-bold tracking-widest"
         />
       </div>

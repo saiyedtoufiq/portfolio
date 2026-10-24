@@ -1,6 +1,6 @@
 export interface SkillItem {
   name: string;
-  category: 'Backend' | 'Frontend' | 'Database' | 'Tools';
+  category: 'Backend' | 'Frontend' | 'Database' | 'Tools' | 'Architecture' | 'APIs';
   proficiency?: number; // 0-100
   iconName?: string;
   badge?: string;
@@ -13,7 +13,7 @@ export interface ProjectItem {
   description: string;
   longDescription?: string;
   tags: string[];
-  category: 'Enterprise' | 'Full Stack' | 'Backend API' | 'E-Commerce';
+  category: 'Multi-Tenant SaaS' | 'Enterprise' | 'Full Stack' | 'Backend API';
   icon: string;
   featured?: boolean;
   metrics?: string;
@@ -38,6 +38,15 @@ export interface HighlightItem {
   icon: string;
 }
 
+export interface EducationItem {
+  degree: string;
+  field: string;
+  institution: string;
+  location: string;
+  duration: string;
+  grade: string;
+}
+
 export interface PortfolioData {
   personal: {
     name: string;
@@ -49,6 +58,7 @@ export interface PortfolioData {
     bioShort: string;
     bioLong: string[];
     email: string;
+    phone: string;
     location: string;
     availability: string;
     yearsExperience: number;
@@ -57,10 +67,12 @@ export interface PortfolioData {
       github: string;
       linkedin: string;
       email: string;
+      phone: string;
     };
     contactFormKey: string;
   };
   highlights: HighlightItem[];
+  education: EducationItem[];
   skills: {
     category: string;
     items: SkillItem[];
@@ -79,86 +91,135 @@ export const portfolioData: PortfolioData = {
     firstName: 'Toufiq',
     middleName: 'Rehman',
     lastName: 'Sayyed',
-    role: 'Full Stack Web Developer',
-    headline: 'Architecting scalable backend ecosystems & fluid digital experiences.',
+    role: 'Full Stack Developer — React · Node.js · Laravel · TypeScript',
+    headline: 'Multi-Tenant SaaS Architecture • High-Throughput APIs • Resilient Databases',
     bioShort:
-      'Passionate Full Stack Developer with 5+ years of specialized engineering experience in building robust backend systems, resilient microservices, high-throughput RESTful APIs, and responsive web applications.',
+      'Full Stack Developer with 5+ years of experience across the complete development lifecycle — database schema design, RESTful API architecture, and frontend implementation — for multi-tenant SaaS platforms built on React, Node.js, and Laravel.',
     bioLong: [
-      'I am a passionate Full Stack Developer with a strong focus on building scalable backend systems and modern web applications. With 5 years of industry experience, I specialize in architecting robust APIs, optimizing relational databases, and designing resilient enterprise software.',
-      'I pride myself on writing clean, maintainable, and self-documenting code. Whether optimizing complex legacy systems, migrating monolithic workflows, or engineering high-performance greenfield platforms from scratch, I thrive on solving demanding technical challenges with precision.',
+      'Full Stack Developer with 5+ years of production experience across the complete software lifecycle: from database schema design and normalization, to RESTful API architecture and modern reactive frontend implementation.',
+      'Proven track record delivering multi-tenant SaaS platforms, cutting average API latency by ~60% through database index tuning and query restructuring, and implementing granular Role-Based Access Control (RBAC).',
+      'Comfortable owning complex features end-to-end: integrating enterprise ecosystems (Google & Microsoft Workspace APIs, Stripe with Apple Pay, PayPal, Twilio SMS, Firebase Cloud Messaging), configuring queue-driven background pipelines, and shipping clean, maintainable user interfaces.',
     ],
     email: 'saiyedtoufiq@gmail.com',
-    location: 'India',
-    availability: 'Open to full-time roles & high-impact contracts',
+    phone: '+91 81285 07070',
+    location: 'Surat, Gujarat, India (Open to Remote / Relocation)',
+    availability: 'Open to Full-Time Roles & Relocation',
     yearsExperience: 5,
     cvUrl: '/Toufiq-Rehman-Sayyed-CV.pdf',
     social: {
       github: 'https://github.com/saiyedtoufiq',
-      linkedin: 'https://www.linkedin.com/in/toufiq-saiyed-6799b4b6',
+      linkedin: 'https://www.linkedin.com/in/toufiq-saiyed',
       email: 'mailto:saiyedtoufiq@gmail.com',
+      phone: 'tel:+918128507070',
     },
     contactFormKey: '2aba64ba-eb7c-4dea-bb40-86e764c8fb81',
   },
 
   highlights: [
     {
-      title: '5+ Years Experience',
-      desc: 'Proven track record in production full-stack engineering',
-      icon: 'Code',
-    },
-    {
-      title: 'API & Microservices',
-      desc: 'Robust RESTful API design & third-party integrations',
+      title: 'Multi-Tenant SaaS',
+      desc: 'Form-driven workflows, dynamic form builders & isolated tenant boundaries',
       icon: 'Server',
     },
     {
-      title: 'Scalable Systems',
-      desc: 'High-efficiency database indexing & backend caching',
+      title: '~60% Latency Reduction',
+      desc: 'Database index tuning, query restructuring & multi-tier Redis caching',
+      icon: 'Zap',
+    },
+    {
+      title: 'Database Architecture',
+      desc: 'Normalization, indexing, transactions, views, triggers & stored procedures',
       icon: 'Database',
     },
     {
-      title: 'Clean Architecture',
-      desc: 'Maintainable, test-driven & modular design patterns',
-      icon: 'Zap',
+      title: 'Ecosystem Integrations',
+      desc: 'Google & Microsoft Workspace, Stripe (Apple Pay), PayPal, Twilio & FCM',
+      icon: 'Code',
+    },
+  ],
+
+  education: [
+    {
+      degree: 'Master of Computer Applications (MCA)',
+      field: 'Computer Science',
+      institution: 'Bhagwan Mahavir College of Management',
+      location: 'Surat, India',
+      duration: 'Jun 2019 – May 2021',
+      grade: 'CGPA: 8.66 / 10',
+    },
+    {
+      degree: 'Bachelor of Computer Applications (BCA)',
+      field: 'Computer Science',
+      institution: 'C B Patel Computer College',
+      location: 'Surat, India',
+      duration: 'Jun 2015 – Feb 2018',
+      grade: 'CGPA: 7.17 / 10',
     },
   ],
 
   skills: [
     {
+      category: 'Languages & Core',
+      items: [
+        { name: 'TypeScript', category: 'Frontend', proficiency: 92, badge: 'Strong' },
+        { name: 'JavaScript (ES6+)', category: 'Frontend', proficiency: 94, badge: 'Core' },
+        { name: 'PHP', category: 'Backend', proficiency: 95, badge: 'Core' },
+        { name: 'SQL', category: 'Database', proficiency: 92, badge: 'Advanced' },
+      ],
+    },
+    {
       category: 'Backend Architecture',
       items: [
-        { name: 'PHP', category: 'Backend', proficiency: 95, badge: 'Core' },
-        { name: 'Laravel', category: 'Backend', proficiency: 92, badge: 'Advanced' },
-        { name: 'CodeIgniter', category: 'Backend', proficiency: 88, badge: 'Proficient' },
-        { name: 'RESTful APIs', category: 'Backend', proficiency: 95, badge: 'Architecture' },
+        { name: 'Laravel (Eloquent ORM & Blade)', category: 'Backend', proficiency: 96, badge: 'Expert' },
+        { name: 'Node.js & Express.js', category: 'Backend', proficiency: 88, badge: 'Full Stack' },
+        { name: 'NestJS (in progress)', category: 'Backend', proficiency: 78, badge: 'Learning' },
+        { name: 'CodeIgniter 3 & 4', category: 'Backend', proficiency: 90, badge: 'Production' },
+        { name: 'RESTful API Architecture', category: 'Backend', proficiency: 96, badge: 'Architecture' },
+        { name: 'WordPress (Custom Themes & Plugins)', category: 'Backend', proficiency: 88, badge: 'CMS' },
       ],
     },
     {
       category: 'Frontend Engineering',
       items: [
-        { name: 'JavaScript (ES6+)', category: 'Frontend', proficiency: 90, badge: 'Core' },
-        { name: 'TypeScript', category: 'Frontend', proficiency: 84, badge: 'Modern' },
-        { name: 'React & Next.js', category: 'Frontend', proficiency: 88, badge: 'Modern' },
-        { name: 'Tailwind CSS', category: 'Frontend', proficiency: 92, badge: 'Styling' },
-        { name: 'Bootstrap & jQuery', category: 'Frontend', proficiency: 90, badge: 'Ecosystem' },
+        { name: 'React.js (Hooks, Context, Router)', category: 'Frontend', proficiency: 94, badge: 'Core UI' },
+        { name: 'TanStack Query', category: 'Frontend', proficiency: 88, badge: 'Data Fetch' },
+        { name: 'Tailwind CSS & Shadcn UI', category: 'Frontend', proficiency: 95, badge: 'Styling' },
+        { name: 'Vue.js', category: 'Frontend', proficiency: 82, badge: 'Reactive' },
+        { name: 'HTML5 & CSS3', category: 'Frontend', proficiency: 96, badge: 'Semantic' },
+        { name: 'Bootstrap & jQuery', category: 'Frontend', proficiency: 92, badge: 'Ecosystem' },
       ],
     },
     {
-      category: 'Database & Caching',
+      category: 'Databases & Performance',
       items: [
-        { name: 'MySQL', category: 'Database', proficiency: 92, badge: 'Relational' },
-        { name: 'PostgreSQL', category: 'Database', proficiency: 85, badge: 'Relational' },
-        { name: 'MongoDB', category: 'Database', proficiency: 78, badge: 'NoSQL' },
-        { name: 'Query Optimization', category: 'Database', proficiency: 90, badge: 'Performance' },
+        { name: 'MySQL (Views, Triggers, Transactions)', category: 'Database', proficiency: 95, badge: 'Relational' },
+        { name: 'PostgreSQL', category: 'Database', proficiency: 88, badge: 'Relational' },
+        { name: 'Redis (Caching & Queues)', category: 'Database', proficiency: 92, badge: 'In-Memory' },
+        { name: 'MongoDB', category: 'Database', proficiency: 80, badge: 'NoSQL' },
+        { name: 'Index & Query Optimization', category: 'Database', proficiency: 95, badge: '~60% Faster' },
+        { name: 'Schema Design & Normalization', category: 'Database', proficiency: 95, badge: 'Modeling' },
       ],
     },
     {
-      category: 'DevOps & Tooling',
+      category: 'System Architecture',
       items: [
-        { name: 'Git & GitHub', category: 'Tools', proficiency: 92, badge: 'VCS' },
-        { name: 'Postman & Swagger', category: 'Tools', proficiency: 90, badge: 'API Testing' },
-        { name: 'Docker / Linux', category: 'Tools', proficiency: 82, badge: 'Environment' },
-        { name: 'Vite & Webpack', category: 'Tools', proficiency: 85, badge: 'Build Tools' },
+        { name: 'Multi-Tenant SaaS', category: 'Architecture', proficiency: 95, badge: 'Core Focus' },
+        { name: 'RBAC (Role-Based Access)', category: 'Architecture', proficiency: 96, badge: 'Security' },
+        { name: 'Queue & Job Processing', category: 'Architecture', proficiency: 93, badge: 'Scale' },
+        { name: 'Webhooks & Caching Strategies', category: 'Architecture', proficiency: 92, badge: 'Reliability' },
+        { name: 'Multi-Language Support', category: 'Architecture', proficiency: 90, badge: 'i18n' },
+        { name: 'MVC Architecture', category: 'Architecture', proficiency: 95, badge: 'Pattern' },
+      ],
+    },
+    {
+      category: 'Integrations & APIs',
+      items: [
+        { name: 'Google & Microsoft Workspace API', category: 'APIs', proficiency: 92, badge: 'Calendar Sync' },
+        { name: 'Stripe (Apple Pay) & PayPal', category: 'APIs', proficiency: 94, badge: 'Payments' },
+        { name: 'Twilio SMS & Mailchimp', category: 'APIs', proficiency: 88, badge: 'Messaging' },
+        { name: 'Firebase Cloud Messaging (FCM)', category: 'APIs', proficiency: 90, badge: 'Push Alerts' },
+        { name: 'WooCommerce API', category: 'APIs', proficiency: 88, badge: 'E-commerce' },
+        { name: 'JWT Authentication', category: 'APIs', proficiency: 95, badge: 'Security' },
       ],
     },
   ],
@@ -166,81 +227,97 @@ export const portfolioData: PortfolioData = {
   projects: [
     {
       id: 1,
-      title: 'Workplace & Service Management System',
-      subtitle: 'Enterprise Resource & Facility Scheduling',
+      title: 'Order Management System (OrdGrow)',
+      subtitle: 'Multi-Tenant SaaS with Dynamic Form Builder',
       description:
-        'A comprehensive enterprise solution for managing corporate workplace resources, automated employee scheduling, and facility maintenance dispatching.',
+        'Multi-tenant, multi-module platform for configurable service bookings, featuring a dynamic form builder that generates order fields from admin-created service forms and customizable business workflows.',
       longDescription:
-        'Engineered an enterprise-grade workplace administration platform handling multi-floor space reservations, facility requests, technician dispatch workflows, and dynamic shift management with role-based access control.',
-      tags: ['Laravel', 'Angular', 'MySQL', 'REST API', 'Role-Based Access'],
-      category: 'Enterprise',
+        'Architected end-to-end multi-tenant SaaS product with React on the frontend and Laravel on the backend. Designed dynamic form builder engine, queue-based background processing, caching strategies, and normalized MySQL/PostgreSQL schemas.',
+      tags: ['React.js', 'Laravel', 'Multi-Tenant SaaS', 'MySQL', 'Dynamic Form Builder', 'Redis Queues'],
+      category: 'Multi-Tenant SaaS',
       icon: '🏢',
       featured: true,
-      metrics: '35% reduction in room booking conflicts',
+      metrics: 'Admin-driven configurable service forms & workflows',
       demoUrl: null,
       githubUrl: null,
     },
     {
       id: 2,
-      title: 'Inventory Management System with POS',
-      subtitle: 'Real-time Retail & Warehouse Platform',
+      title: 'Workplace & Service Management (Gfacility)',
+      subtitle: 'Multi-Tenant Enterprise SaaS Platform',
       description:
-        'An all-in-one inventory control platform equipped with real-time barcode scanning, stock alerting, and rapid checkout Point-of-Sale (POS) capabilities.',
+        'Multi-module platform for corporate service bookings, room scheduling, and helpdesk ticketing. Engineered with RBAC, queue-based asynchronous workflows, and deep Google & Microsoft Workspace calendar integration.',
       longDescription:
-        'Built high-speed transactional POS checkout combined with automated stock reorder thresholds, inventory valuation reporting, and multi-tier cashier authorization.',
-      tags: ['Laravel', 'Vue.js', 'Bootstrap', 'MySQL', 'POS Engine'],
-      category: 'E-Commerce',
-      icon: '🛒',
+        'Designed and shipped multi-tenant backend architecture with automated calendar sync, smart task routing, webhook consumers for platform events, and automated reminder queues.',
+      tags: ['Laravel', 'Angular', 'Google Workspace API', 'Microsoft Calendar API', 'RBAC', 'Redis'],
+      category: 'Multi-Tenant SaaS',
+      icon: '🗓️',
       featured: true,
-      metrics: 'Real-time inventory sync under 200ms',
+      metrics: 'Automated 2-way Google & Microsoft Calendar routing',
       demoUrl: null,
       githubUrl: null,
     },
     {
       id: 3,
-      title: 'Software Development Management System',
-      subtitle: 'Agile Team Collaboration & Sprint Tracker',
+      title: 'Sports Life Success (SLS)',
+      subtitle: 'Athletics Platform & Automated Certification',
       description:
-        'A comprehensive solution for software development teams, featuring kanban board tracking, sprint milestone management, and automated dev throughput reporting.',
+        'Production platform managing athlete rosters, tournaments, and match results. Built role-based access control (RBAC), structured RESTful APIs, and an automated certificate-generation pipeline upon game completion.',
       longDescription:
-        'Delivered an integrated agile management suite with issue boards, burndown tracking, code review signoffs, and timeline milestone telemetry.',
-      tags: ['Laravel', 'Bootstrap', 'jQuery', 'MySQL', 'Agile Analytics'],
+        'Engineered granular authorization rules allowing players, coaches, and administrators to interact strictly according to privileges, plus automated PDF certificate generation and tournament tracking.',
+      tags: ['Laravel', 'RESTful APIs', 'RBAC', 'Automated Certificate Generator', 'MySQL'],
       category: 'Full Stack',
-      icon: '✅',
+      icon: '🏆',
       featured: true,
-      metrics: 'Boosted cross-functional delivery visibility',
-      demoUrl: null,
+      metrics: 'Instant automated certificate generation on game finish',
+      demoUrl: 'https://sportlifesuccess.com',
       githubUrl: null,
     },
     {
       id: 4,
-      title: 'School & University Management System',
-      subtitle: 'Academic Records & Attendance Automation',
+      title: 'I PROMISE — Social Promise Tracking App',
+      subtitle: 'Mobile RESTful Backend & Content Moderation',
       description:
-        'An academic administration platform handling student lifecycle records, semester course curricula, grade distribution, and daily attendance records.',
+        'Versioned REST API for iOS and Android mobile clients with JWT authentication, Firebase Cloud Messaging (FCM) push notifications, and a full-featured admin portal for user moderation and analytics.',
       longDescription:
-        'Centralized student registration, timetable allocation, transcript generation, and parent notification portals into a unified, secure database.',
-      tags: ['CodeIgniter', 'Bootstrap', 'jQuery', 'MySQL', 'Academic Portal'],
-      category: 'Enterprise',
-      icon: '🎓',
-      featured: false,
-      metrics: 'Supported 5,000+ active student records',
+        'Built secure mobile endpoints following RESTful standards, integrated push notification queues, and created moderation telemetry with exportable analytics reporting.',
+      tags: ['Laravel / Node.js', 'JWT Auth', 'Firebase FCM', 'RESTful APIs', 'Analytics'],
+      category: 'Backend API',
+      icon: '🤝',
+      featured: true,
+      metrics: 'Real-time FCM push dispatch & exportable telemetry',
       demoUrl: null,
       githubUrl: null,
     },
     {
       id: 5,
-      title: 'Sports Clubs Management System',
-      subtitle: 'Athletics Booking & League Administration',
+      title: 'Skooly — School & University ERP',
+      subtitle: 'Comprehensive Campus Management Suite',
       description:
-        'An athletic organization suite managing athlete rosters, tournaments, subscription memberships, and court/facility reservations.',
+        'Comprehensive educational ERP managing student/teacher/staff lifecycles, attendance, courses, and accounting/expenses. Introduced a QR-code-based contactless attendance system.',
       longDescription:
-        'Streamlined member dues tracking, automated match fixture schedules, court reservations, and team equipment logistics.',
-      tags: ['CodeIgniter', 'Bootstrap', 'jQuery', 'MySQL', 'Member Billing'],
-      category: 'Full Stack',
-      icon: '🏈',
+        'Automated academic workflows across admissions, fee collections, timetable scheduling, and grade transcripts, reducing manual attendance errors through instant QR code scanning.',
+      tags: ['PHP / CodeIgniter', 'QR Code Attendance', 'Accounting & Fee Engine', 'MySQL', 'Bootstrap'],
+      category: 'Enterprise',
+      icon: '🎓',
       featured: false,
-      metrics: 'Automated recurring tournament brackets',
+      metrics: 'QR-code contactless attendance reduced manual errors',
+      demoUrl: null,
+      githubUrl: null,
+    },
+    {
+      id: 6,
+      title: 'Agile Project Management Tool',
+      subtitle: 'Sprint Analytics & Cron Bulk Email Campaign Engine',
+      description:
+        'Full-featured agile collaboration suite with sprint boards, user story estimation, and cross-team task management, paired with a cron-driven bulk email marketing engine with click-through and opt-out tracking.',
+      longDescription:
+        'Engineered sprint burndown analytics, automated task state transitions, and a resilient cron worker pipeline delivering bulk marketing campaigns with telemetry tracking.',
+      tags: ['Laravel', 'Sprint Boards', 'Cron Asynchronous Jobs', 'Email Analytics', 'Redis'],
+      category: 'Full Stack',
+      icon: '⚡',
+      featured: false,
+      metrics: 'Bulk email campaign engine with open & click tracking',
       demoUrl: null,
       githubUrl: null,
     },
@@ -249,34 +326,50 @@ export const portfolioData: PortfolioData = {
   experiences: [
     {
       id: 1,
-      role: 'Web Developer',
-      company: 'Sourcecube Technologies Pvt Ltd',
-      duration: '2023 - 2025',
-      location: 'India',
+      role: 'Full Stack Developer',
+      company: 'Deep Technologies Pvt Ltd',
+      duration: 'May 2026 – Present',
+      location: 'Surat, India',
       type: 'Full-time',
       description: [
-        'Specialized in architecting and scaling resilient backend systems and database architectures using Laravel and MySQL.',
-        'Profiled and optimized complex database queries, reducing average API response times by up to 40%.',
-        'Implemented enterprise-grade RESTful APIs serving both high-traffic web applications and mobile clients.',
-        'Mentored junior software engineers, established standard coding conventions, and conducted peer code reviews.',
+        'Build multi-tenant SaaS products end-to-end with React on the frontend and Laravel on the backend, owning schema design, API development, and UI implementation.',
+        'Deliver OrdGrow, a dynamic, form-driven order management platform with configurable, business-specific workflows and an admin-driven form builder.',
+        'Implement queue-based background processing and caching strategies to keep multi-tenant workloads performant at scale.',
+        'Design MySQL/PostgreSQL schemas with rigorous attention to normalization, indexing, and query optimization for new product modules.',
       ],
-      technologies: ['PHP', 'Laravel', 'MySQL', 'REST APIs', 'Git', 'Postman'],
+      technologies: ['React.js', 'Laravel', 'TypeScript', 'Multi-Tenant SaaS', 'MySQL', 'PostgreSQL', 'Redis', 'Queues'],
     },
     {
       id: 2,
-      role: 'Junior Web Developer',
-      company: 'Potenza Global Solutions Pvt Ltd.',
-      duration: '2021 - 2023',
-      location: 'India',
+      role: 'Backend Developer',
+      company: 'Sourcecube Technologies Pvt Ltd',
+      duration: 'Nov 2023 – Jan 2026',
+      location: 'Surat, India',
       type: 'Full-time',
       description: [
-        'Assisted in the end-to-end development, testing, and deployment of mission-critical client web portals.',
-        'Diagnosed defects, resolved critical production bugs, and modernized legacy codebases for improved maintainability.',
-        'Rapidly acquired and implemented emerging technologies, architectural patterns, and reactive libraries.',
-        'Collaborated with cross-functional product teams, QA engineers, and designers to guarantee on-time releases.',
-        'Engineered foundational RESTful service endpoints and database schema migrations.',
+        'Designed and built 30+ RESTful API endpoints on a multi-tenant Laravel platform, consumed by Angular, iOS, and Android clients.',
+        'Reduced average API response time by ~60% through database index tuning, query restructuring, and Redis caching.',
+        'Integrated Google Calendar and Microsoft Calendar APIs with automated reminders and smart task routing.',
+        'Built Laravel queue- and event-driven pipelines for asynchronous background processing under peak load, plus webhook consumers for third-party platform events.',
+        'Added multi-language support across the platform and tuned MySQL schemas (views, transactions, indexing) for heavy reporting workloads.',
       ],
-      technologies: ['PHP', 'CodeIgniter', 'JavaScript', 'jQuery', 'Bootstrap', 'MySQL'],
+      technologies: ['Laravel', 'PHP', 'MySQL', 'Redis', 'RESTful APIs', 'Google & MS Workspace APIs', 'Webhooks', 'Queue Workers'],
+    },
+    {
+      id: 3,
+      role: 'Web Developer',
+      company: 'Potenza Global Solutions Pvt Ltd',
+      duration: 'Jan 2021 – Oct 2023',
+      location: 'Surat, India',
+      type: 'Full-time',
+      description: [
+        'Built and maintained full-stack features on PHP (Laravel & CodeIgniter 3/4) backends with responsive frontends, including a Laravel service with JWT authentication, file management, and scheduled commands.',
+        'Designed REST APIs for mobile-backend data exchange following RESTful security best practices; implemented RBAC via CodeIgniter controller filters.',
+        'Integrated Stripe (with Apple Pay) and PayPal payment gateways, Twilio SMS, Mailchimp, and push notification services across multiple client products.',
+        'Developed custom WordPress themes and plugins (Hooks, Custom Post Types, ACF, WooCommerce API, Elementor) for client marketing and e-commerce sites.',
+        'Refactored legacy codebases to systematically eliminate technical debt across production systems.',
+      ],
+      technologies: ['PHP', 'Laravel', 'CodeIgniter 3/4', 'WordPress', 'Stripe & PayPal', 'Twilio SMS', 'JWT Auth', 'MySQL'],
     },
   ],
 

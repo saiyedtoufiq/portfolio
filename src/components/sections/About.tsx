@@ -2,13 +2,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Server, Database, Zap, ShieldCheck, Cpu, Terminal, Layers } from 'lucide-react';
-import { portfolioData } from '../../../data/portfolio';
+import { Code2, Server, Database, Zap, ShieldCheck, Cpu, Terminal, Layers, GraduationCap, Award } from 'lucide-react';
+import { portfolioData, EducationItem } from '../../../data/portfolio';
 import SpotlightCard from '../reactbits/SpotlightCard';
 import { useTheme } from '../../context/ThemeContext';
 
 export default function About() {
-  const { personal, highlights } = portfolioData;
+  const { personal, highlights, education } = portfolioData;
   const { isDark } = useTheme();
 
   const iconMap: Record<string, React.ReactNode> = {
@@ -43,9 +43,9 @@ export default function About() {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight"
           >
-            Architectural Focus &{' '}
+            Full-Stack Engineering &{' '}
             <span className="bg-gradient-to-r from-cyan-600 to-indigo-600 dark:from-cyan-400 dark:to-violet-400 bg-clip-text text-transparent">
-              Engineering Roots
+              Architectural Roots
             </span>
           </motion.h2>
 
@@ -56,12 +56,12 @@ export default function About() {
             transition={{ delay: 0.2 }}
             className="mt-4 text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed"
           >
-            Building systems with longevity in mind—focused on clean relational schemas, high-efficiency caching, and maintainable services.
+            Over 5 years designing multi-tenant SaaS platforms, optimizing high-load databases, and engineering reliable RESTful APIs from schema to UI.
           </motion.p>
         </div>
 
         {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-16">
           {/* Left Column: Personal Narrative & Core Principles */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -76,8 +76,8 @@ export default function About() {
                   <Terminal className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">Engineering Mindset</h3>
-                  <span className="text-xs font-mono text-cyan-600 dark:text-cyan-400">Reliability • Database Internals • Clean Code</span>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">Engineering Philosophy</h3>
+                  <span className="text-xs font-mono text-cyan-600 dark:text-cyan-400">Multi-Tenant SaaS • RBAC • Query Optimization</span>
                 </div>
               </div>
 
@@ -90,25 +90,25 @@ export default function About() {
               <div className="pt-4 border-t border-slate-200 dark:border-white/10 grid grid-cols-2 gap-4">
                 <div className="flex items-center gap-2.5 text-sm text-slate-700 dark:text-slate-300">
                   <ShieldCheck className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                  <span>Sanctum & JWT Security</span>
+                  <span>RBAC & JWT Security</span>
                 </div>
                 <div className="flex items-center gap-2.5 text-sm text-slate-700 dark:text-slate-300">
-                  <Cpu className="w-4 h-4 text-cyan-500 flex-shrink-0" />
-                  <span>Sub-50ms Response Times</span>
+                  <Zap className="w-4 h-4 text-cyan-500 flex-shrink-0" />
+                  <span>~60% Latency Tuning</span>
                 </div>
                 <div className="flex items-center gap-2.5 text-sm text-slate-700 dark:text-slate-300">
                   <Database className="w-4 h-4 text-violet-500 flex-shrink-0" />
-                  <span>Optimized SQL Schemas</span>
+                  <span>MySQL & PostgreSQL Opt</span>
                 </div>
                 <div className="flex items-center gap-2.5 text-sm text-slate-700 dark:text-slate-300">
                   <Layers className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                  <span>Decoupled Microservices</span>
+                  <span>Queue & Worker Scaling</span>
                 </div>
               </div>
             </div>
 
             <div className="mt-8 pt-6 border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-xs font-mono text-slate-500">
-              <span>Based: {personal.location}</span>
+              <span>Location: {personal.location}</span>
               <span className="text-emerald-600 dark:text-emerald-400">● {personal.availability}</span>
             </div>
           </motion.div>
@@ -154,11 +154,50 @@ export default function About() {
                   </div>
 
                   <div className="mt-6 pt-3 border-t border-slate-100 dark:border-white/5 flex items-center justify-between text-[11px] font-mono text-slate-400">
-                    <span>Standard</span>
-                    <span className="text-cyan-600 dark:text-cyan-400">Verified</span>
+                    <span>Verified Production</span>
+                    <span className="text-cyan-600 dark:text-cyan-400 font-bold">5+ Yrs</span>
                   </div>
                 </SpotlightCard>
               </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Education & Academic Pedigree */}
+        <div className="pt-8 border-t border-slate-200 dark:border-white/10">
+          <div className="flex items-center gap-2 mb-6">
+            <GraduationCap className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white font-mono">Academic Background & Degrees</h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {education.map((edu, idx) => (
+              <SpotlightCard
+                key={idx}
+                theme={isDark ? 'dark' : 'light'}
+                spotlightColor="rgba(34, 211, 238, 0.15)"
+                className="p-6 rounded-2xl bg-white/70 dark:bg-space-900/50 border border-slate-200 dark:border-white/10 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="text-xs font-mono font-semibold text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/70 border border-cyan-200 dark:border-cyan-500/20 px-2.5 py-0.5 rounded-full">
+                      {edu.duration}
+                    </span>
+                    <span className="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400">
+                      {edu.grade}
+                    </span>
+                  </div>
+                  <h4 className="text-base font-bold text-slate-900 dark:text-white">
+                    {edu.degree}
+                  </h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">
+                    {edu.field}
+                  </p>
+                  <p className="text-sm text-slate-600 dark:text-slate-300 mt-2">
+                    {edu.institution}, {edu.location}
+                  </p>
+                </div>
+              </SpotlightCard>
             ))}
           </div>
         </div>

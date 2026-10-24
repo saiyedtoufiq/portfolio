@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Send, Check, Copy, MapPin, Sparkles, AlertCircle } from 'lucide-react';
+import { Mail, Github, Linkedin, Send, Check, Copy, MapPin, Sparkles, AlertCircle, Phone } from 'lucide-react';
 import { portfolioData } from '../../../data/portfolio';
 import SpotlightCard from '../reactbits/SpotlightCard';
 import { useTheme } from '../../context/ThemeContext';
@@ -167,7 +167,15 @@ export default function Contact() {
                   <div className="w-8 h-8 rounded-lg bg-slate-200/70 dark:bg-white/5 flex items-center justify-center text-cyan-600 dark:text-cyan-400">
                     <MapPin className="w-4 h-4" />
                   </div>
-                  <span>Location: {personal.location} (Remote / Global)</span>
+                  <span>Location: {personal.location}</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+                  <div className="w-8 h-8 rounded-lg bg-slate-200/70 dark:bg-white/5 flex items-center justify-center text-cyan-600 dark:text-cyan-400">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                  <a href={personal.social.phone} className="hover:text-cyan-600 dark:hover:text-cyan-400 font-mono transition-colors">
+                    Phone: {personal.phone}
+                  </a>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
                   <div className="w-8 h-8 rounded-lg bg-slate-200/70 dark:bg-white/5 flex items-center justify-center text-emerald-500">

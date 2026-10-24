@@ -47,11 +47,12 @@ export default function Hero() {
     } else if (cmd === 'routes') {
       setTerminalOutput([
         'toufiq@prod-core:~$ php artisan route:list --path=api/v1',
-        'GET|HEAD   api/v1/workplace/spaces ...... SpaceController@index',
-        'POST       api/v1/workplace/bookings .... BookingController@store',
-        'GET|HEAD   api/v1/inventory/pos/stock ... InventoryController@stock',
-        'POST       api/v1/pos/checkout .......... PosEngineController@checkout',
-        'Middleware: api, auth:sanctum, throttle:60,1',
+        'POST   api/v1/ordgrow/forms/builder ......... DynamicFormBuilder@store',
+        'POST   api/v1/gfacility/bookings/sync ....... CalendarSyncController@sync',
+        'POST   api/v1/sls/tournaments/certificates .. CertificateEngine@generate',
+        'POST   api/v1/promise/notifications/fcm ..... PushNotificationWorker@dispatch',
+        'GET    api/v1/skooly/attendance/qr-verify ... QrAttendanceController@verify',
+        'Middleware: api, auth:sanctum, rbac.verify, throttle:120,1',
       ]);
     } else if (cmd === 'benchmark') {
       setTerminalOutput([
@@ -67,7 +68,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen pt-28 pb-16 md:pt-36 md:pb-24 flex items-center justify-center overflow-hidden bg-slate-50 dark:bg-space-950 transition-colors duration-300"
+      className="relative min-h-screen py-16 sm:py-20 md:py-24 flex items-center justify-center overflow-hidden bg-slate-50 dark:bg-space-950 transition-colors duration-300"
     >
       {/* Dynamic Aurora Shader Background */}
       <div className="absolute inset-0 pointer-events-none -z-10 opacity-70 dark:opacity-50">
@@ -105,7 +106,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 dark:bg-cyan-950/70 border border-cyan-500/30 text-cyan-700 dark:text-cyan-300 text-xs font-mono font-medium mb-6 shadow-sm"
             >
               <Sparkles className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
-              <span>Full-Stack Engineer & Database Architect • 5+ Yrs</span>
+              <span>Full Stack Developer • React · Node.js · Laravel · TypeScript</span>
             </motion.div>
 
             {/* Main Name Heading */}
@@ -119,11 +120,11 @@ export default function Hero() {
             {/* Core Role & Human Tagline */}
             <p className="text-lg sm:text-2xl font-medium text-slate-700 dark:text-slate-200 mb-6 font-mono flex items-center gap-2">
               <span className="text-cyan-600 dark:text-cyan-400 font-bold">&gt;</span>
-              <span>Backend Architecture & Modern Reactive Web</span>
+              <span>Multi-Tenant SaaS • High-Throughput APIs • Resilient Databases</span>
             </p>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed mb-8">
-              I specialize in high-load Laravel backends, database query optimization, and reactive JavaScript interfaces. With 5 years of production experience, I design resilient APIs, eliminate bottlenecks, and turn complex business workflows into clean, maintainable systems.
+              Full Stack Developer with 5+ years of experience across the complete development lifecycle — database schema design, RESTful API architecture, and frontend implementation — for multi-tenant SaaS platforms built on React, Node.js, and Laravel.
             </p>
 
             {/* Action Buttons */}
@@ -132,7 +133,7 @@ export default function Hero() {
                 href="#projects"
                 className="group relative inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl font-semibold text-sm text-white bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 shadow-lg shadow-cyan-600/25 hover:shadow-cyan-600/40 hover:scale-[1.02] active:scale-[0.98] transition-all"
               >
-                <span>View Enterprise Projects</span>
+                <span>View Featured Projects</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
 
@@ -152,11 +153,11 @@ export default function Hero() {
                 <span className="text-xs text-slate-500 dark:text-slate-400">Years Production Engineering</span>
               </div>
               <div>
-                <span className="block text-2xl font-mono font-bold text-indigo-600 dark:text-violet-400">40%</span>
-                <span className="text-xs text-slate-500 dark:text-slate-400">Query Latency Reduction</span>
+                <span className="block text-2xl font-mono font-bold text-indigo-600 dark:text-violet-400">~60%</span>
+                <span className="text-xs text-slate-500 dark:text-slate-400">Average API Latency Reduced</span>
               </div>
               <div>
-                <span className="block text-2xl font-mono font-bold text-emerald-600 dark:text-emerald-400">5+</span>
+                <span className="block text-2xl font-mono font-bold text-emerald-600 dark:text-emerald-400">15+</span>
                 <span className="text-xs text-slate-500 dark:text-slate-400">Enterprise Platforms Shipped</span>
               </div>
             </div>

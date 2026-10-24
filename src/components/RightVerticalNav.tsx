@@ -56,123 +56,130 @@ export default function RightVerticalNav() {
   return (
     <nav
       aria-label="Vertical Page Navigation"
-      className="fixed right-4 sm:right-7 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-end gap-3 select-none"
+      className="fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center select-none"
     >
-      {/* Theme Toggle Capsule */}
-      <motion.button
-        onClick={toggleTheme}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        aria-label="Toggle Theme"
-        className="w-10 h-10 rounded-2xl flex items-center justify-center bg-white/80 dark:bg-space-900/90 backdrop-blur-xl border border-slate-300 dark:border-white/10 shadow-lg shadow-black/10 dark:shadow-black/50 text-slate-700 dark:text-cyan-400 hover:border-cyan-500 transition-colors mb-2"
-        title={isDark ? 'Switch to Light Theme' : 'Switch to Dark Theme'}
-      >
-        <AnimatePresence mode="wait">
-          {isDark ? (
-            <motion.div
-              key="sun"
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.25 }}
-            >
-              <Sun className="w-4 h-4 text-amber-400" />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="moon"
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.25 }}
-            >
-              <Moon className="w-4 h-4 text-cyan-600" />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.button>
-
-      {/* Main Vertical Spine */}
-      <div className="py-4 px-2.5 rounded-3xl bg-white/75 dark:bg-space-900/85 backdrop-blur-2xl border border-slate-200 dark:border-white/10 shadow-xl shadow-black/10 dark:shadow-black/60 flex flex-col items-end gap-3 relative">
-        {sectionList.map((sec) => {
-          const isActive = activeSection === sec.id;
-          const isHovered = hoveredSection === sec.id;
-
-          return (
-            <div
-              key={sec.id}
-              className="relative flex items-center justify-end group py-1"
-              onMouseEnter={() => setHoveredSection(sec.id)}
-              onMouseLeave={() => setHoveredSection(null)}
-            >
-              {/* Tooltip Badge on Hover or Active */}
-              <AnimatePresence>
-                {(isHovered || (isActive && hoveredSection === null)) && (
-                  <motion.div
-                    initial={{ opacity: 0, x: 10, scale: 0.95 }}
-                    animate={{ opacity: 1, x: 0, scale: 1 }}
-                    exit={{ opacity: 0, x: 10, scale: 0.95 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute right-12 whitespace-nowrap pointer-events-none z-50 flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/90 dark:bg-space-950/95 text-white backdrop-blur-xl border border-cyan-500/30 shadow-xl text-xs font-mono"
-                  >
-                    <span className="text-cyan-400 font-bold">{sec.index}</span>
-                    <span className="font-semibold tracking-wider uppercase text-slate-200">{sec.label}</span>
-                    <span className="text-[10px] text-slate-400 border-l border-white/20 pl-2 hidden lg:inline">
-                      {sec.tag}
-                    </span>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-
-              {/* Clickable Line & Indicator */}
-              <button
-                onClick={() => scrollTo(sec.id)}
-                aria-label={`Jump to ${sec.label}`}
-                className="flex items-center gap-2 group p-1 focus:outline-none"
+      {/* Tall Architectural Navigation Spine */}
+      <div className="h-[65vh] min-h-[520px] max-h-[700px] py-5 sm:py-7 px-2.5 sm:px-3.5 rounded-full sm:rounded-3xl bg-white/80 dark:bg-space-900/85 backdrop-blur-2xl border border-slate-200 dark:border-white/10 shadow-2xl shadow-black/10 dark:shadow-black/70 flex flex-col justify-between items-center relative transition-colors duration-300">
+        
+        {/* Top: Theme Toggle Capsule */}
+        <motion.button
+          onClick={toggleTheme}
+          whileHover={{ scale: 1.15 }}
+          whileTap={{ scale: 0.9 }}
+          aria-label="Toggle Theme"
+          className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-slate-100 dark:bg-space-950/90 border border-slate-200 dark:border-white/10 text-slate-700 dark:text-cyan-400 hover:border-cyan-500 transition-colors shadow-sm"
+          title={isDark ? 'Switch to Light Theme' : 'Switch to Dark Theme'}
+        >
+          <AnimatePresence mode="wait">
+            {isDark ? (
+              <motion.div
+                key="sun"
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
               >
-                <span
-                  className={`text-[10px] font-mono transition-all ${
-                    isActive
-                      ? 'text-cyan-500 dark:text-cyan-300 font-bold scale-110'
-                      : 'text-slate-400 dark:text-slate-600 group-hover:text-slate-700 dark:group-hover:text-slate-300'
-                  }`}
-                >
-                  {sec.index}
-                </span>
+                <Sun className="w-4 h-4 text-amber-400" />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="moon"
+                initial={{ rotate: -90, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: 90, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Moon className="w-4 h-4 text-cyan-600" />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.button>
 
-                <div className="relative flex items-center">
-                  <div
-                    className={`h-[2px] rounded-full transition-all duration-300 ${
-                      isActive
-                        ? 'w-7 sm:w-9 bg-gradient-to-r from-cyan-400 to-indigo-500 shadow-sm shadow-cyan-400'
-                        : isHovered
-                        ? 'w-5 bg-slate-400 dark:bg-slate-500'
-                        : 'w-3 bg-slate-300 dark:bg-slate-800'
-                    }`}
-                  />
-                  {isActive && (
+        {/* Middle: Section Items spaced along the tall rail */}
+        <div className="flex-1 flex flex-col justify-around py-4 w-full relative items-center">
+          {/* Subtle vertical spine track line */}
+          <div className="absolute top-2 bottom-2 right-[7px] sm:right-[9px] w-[1px] bg-slate-200 dark:bg-white/5 pointer-events-none -z-0" />
+
+          {sectionList.map((sec) => {
+            const isActive = activeSection === sec.id;
+            const isHovered = hoveredSection === sec.id;
+
+            return (
+              <div
+                key={sec.id}
+                className="relative flex items-center justify-end w-full group py-1.5 z-10"
+                onMouseEnter={() => setHoveredSection(sec.id)}
+                onMouseLeave={() => setHoveredSection(null)}
+              >
+                {/* Tooltip Badge on Hover or Active */}
+                <AnimatePresence>
+                  {(isHovered || (isActive && hoveredSection === null)) && (
                     <motion.div
-                      layoutId="active-dot"
-                      className="absolute right-0 w-2 h-2 rounded-full bg-cyan-400 shadow-md shadow-cyan-400"
-                    />
+                      initial={{ opacity: 0, x: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, x: 0, scale: 1 }}
+                      exit={{ opacity: 0, x: 10, scale: 0.95 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute right-14 whitespace-nowrap pointer-events-none z-50 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/95 dark:bg-space-950/95 text-white backdrop-blur-xl border border-cyan-500/30 shadow-xl text-xs font-mono"
+                    >
+                      <span className="text-cyan-400 font-bold">{sec.index}</span>
+                      <span className="font-semibold tracking-wider uppercase text-slate-200">{sec.label}</span>
+                      <span className="text-[10px] text-slate-400 border-l border-white/20 pl-2 hidden lg:inline">
+                        {sec.tag}
+                      </span>
+                    </motion.div>
                   )}
-                </div>
-              </button>
-            </div>
-          );
-        })}
+                </AnimatePresence>
 
-        {/* Vertical Scroll Progress Meter */}
+                {/* Clickable Line & Indicator */}
+                <button
+                  onClick={() => scrollTo(sec.id)}
+                  aria-label={`Jump to ${sec.label}`}
+                  className="flex items-center gap-2 group p-1 focus:outline-none"
+                >
+                  <span
+                    className={`text-[9px] sm:text-[10px] font-mono transition-all ${
+                      isActive
+                        ? 'text-cyan-600 dark:text-cyan-300 font-bold scale-110'
+                        : 'text-slate-400 dark:text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300'
+                    }`}
+                  >
+                    {sec.index}
+                  </span>
+
+                  <div className="relative flex items-center">
+                    <div
+                      className={`h-[2px] rounded-full transition-all duration-300 ${
+                        isActive
+                          ? 'w-7 sm:w-10 bg-gradient-to-r from-cyan-400 to-indigo-500 shadow-sm shadow-cyan-400'
+                          : isHovered
+                          ? 'w-5 sm:w-6 bg-slate-400 dark:bg-slate-400'
+                          : 'w-2.5 sm:w-3.5 bg-slate-300 dark:bg-slate-700'
+                      }`}
+                    />
+                    {isActive && (
+                      <motion.div
+                        layoutId="active-dot"
+                        className="absolute right-0 w-2 h-2 rounded-full bg-cyan-400 shadow-md shadow-cyan-400"
+                      />
+                    )}
+                  </div>
+                </button>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Bottom: Progress Counter & Return to Top */}
         <div className="pt-3 border-t border-slate-200 dark:border-white/10 w-full flex flex-col items-center gap-1.5">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             aria-label="Scroll to top"
-            className="text-[10px] font-mono text-slate-400 dark:text-slate-500 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors"
+            className="text-[10px] font-mono text-slate-400 dark:text-slate-500 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors p-1"
             title="Scroll to top"
           >
             <ArrowUp className="w-3.5 h-3.5" />
           </button>
-          <span className="text-[9px] font-mono font-semibold text-cyan-600 dark:text-cyan-400">
+          <span className="text-[9px] font-mono font-bold text-cyan-600 dark:text-cyan-400">
             {scrollProgress}%
           </span>
         </div>

@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import TopHeader from '../components/TopHeader';
 import RightVerticalNav from '../components/RightVerticalNav';
 import Hero from '../components/sections/Hero';
 import About from '../components/sections/About';
@@ -24,14 +23,11 @@ export default function Home() {
       shape="streak"
     >
       <div className="min-h-screen flex flex-col relative bg-transparent text-slate-900 dark:text-slate-100 transition-colors duration-300">
-        {/* Brand identity on top-left, Actions & Mobile Hamburger on top-right */}
-        <TopHeader />
-
-        {/* Right-Side Vertical Navigation Rail */}
+        {/* Right-Side Vertical Navigation Rail with Theme Switcher & Progress */}
         <RightVerticalNav />
 
-        {/* Main Content Area - padded on desktop to give room to the vertical rail */}
-        <main className="flex-1 md:pr-14 lg:pr-16">
+        {/* Main Content Area */}
+        <main className="flex-1 pr-8 sm:pr-12 md:pr-16 lg:pr-20">
           <Hero />
           <About />
           <Skills />

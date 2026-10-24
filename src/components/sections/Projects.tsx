@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { portfolioData, ProjectItem } from '../../../data/portfolio';
 import SpotlightCard from '../reactbits/SpotlightCard';
-import { ExternalLink, Github, Sparkles, Building2, ShoppingCart, CheckSquare, GraduationCap, Trophy } from 'lucide-react';
+import { ExternalLink, Github, Sparkles, Building2, ShoppingCart, CheckSquare, GraduationCap, Trophy, Calendar, Users, Zap } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
 export default function Projects() {
@@ -12,14 +12,15 @@ export default function Projects() {
   const { isDark } = useTheme();
   const [activeFilter, setActiveFilter] = useState<string>('All');
 
-  const categories = ['All', 'Enterprise', 'Full Stack', 'E-Commerce'];
+  const categories = ['All', 'Multi-Tenant SaaS', 'Enterprise', 'Full Stack', 'Backend API'];
 
   const projectIcons: Record<string, React.ReactNode> = {
     '🏢': <Building2 className="w-8 h-8 text-cyan-600 dark:text-cyan-400" />,
-    '🛒': <ShoppingCart className="w-8 h-8 text-violet-600 dark:text-violet-400" />,
-    '✅': <CheckSquare className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />,
-    '🎓': <GraduationCap className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />,
-    '🏈': <Trophy className="w-8 h-8 text-amber-600 dark:text-amber-400" />,
+    '🗓️': <Calendar className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />,
+    '🏆': <Trophy className="w-8 h-8 text-amber-600 dark:text-amber-400" />,
+    '🤝': <Users className="w-8 h-8 text-violet-600 dark:text-violet-400" />,
+    '🎓': <GraduationCap className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />,
+    '⚡': <Zap className="w-8 h-8 text-cyan-600 dark:text-cyan-400" />,
   };
 
   const filteredProjects =
