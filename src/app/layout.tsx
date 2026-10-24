@@ -88,7 +88,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="icon" href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/favicon.png`} type="image/png" />
       </head>
       <body className={`${outfit.variable} ${jetbrainsMono.variable} font-sans min-h-screen selection:bg-cyan-500 selection:text-space-950 transition-colors duration-300`}>
         <Providers>

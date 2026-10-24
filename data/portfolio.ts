@@ -105,7 +105,7 @@ export const portfolioData: PortfolioData = {
     location: 'Surat, Gujarat, India (Open to Remote / Relocation)',
     availability: 'Open to Full-Time Roles & Relocation',
     yearsExperience: 5,
-    cvUrl: '/Toufiq-Rehman-Sayyed-CV.pdf',
+    cvUrl: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/Toufiq-Rehman-Sayyed-CV.pdf`,
     social: {
       github: 'https://github.com/saiyedtoufiq',
       linkedin: 'https://www.linkedin.com/in/toufiq-saiyed',
