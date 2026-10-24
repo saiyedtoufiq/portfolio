@@ -56,7 +56,7 @@ export default function About() {
             transition={{ delay: 0.2 }}
             className="mt-4 text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed"
           >
-            Over 5 years designing multi-tenant SaaS platforms, optimizing high-load databases, and engineering reliable RESTful APIs from schema to UI.
+            Over 5 years of professional web development experience, progressing from full-stack applications to high-throughput backend systems and multi-tenant SaaS architectures.
           </motion.p>
         </div>
 
@@ -151,11 +151,6 @@ export default function About() {
                     <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                       {item.desc}
                     </p>
-                  </div>
-
-                  <div className="mt-6 pt-3 border-t border-slate-100 dark:border-white/5 flex items-center justify-between text-[11px] font-mono text-slate-400">
-                    <span>Verified Production</span>
-                    <span className="text-cyan-600 dark:text-cyan-400 font-bold">5+ Yrs</span>
                   </div>
                 </SpotlightCard>
               </motion.div>

@@ -15,21 +15,17 @@ export default function Skills() {
 
   const categories = [
     'All',
-    'Languages & Core',
-    'Backend Architecture',
-    'Frontend Engineering',
-    'Databases & Performance',
-    'System Architecture',
-    'Integrations & APIs',
+    'Core Stack',
+    'Databases & Caching',
+    'Architecture',
+    'Third-Party Integrations',
   ];
 
   const categoryIcons: Record<string, React.ReactNode> = {
-    'Languages & Core': <Code className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />,
-    'Backend Architecture': <Server className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />,
-    'Frontend Engineering': <Layout className="w-4 h-4 text-violet-600 dark:text-violet-400" />,
-    'Databases & Performance': <Database className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
-    'System Architecture': <Cpu className="w-4 h-4 text-sky-600 dark:text-sky-400" />,
-    'Integrations & APIs': <Layers className="w-4 h-4 text-amber-600 dark:text-amber-400" />,
+    'Core Stack': <Code className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />,
+    'Databases & Caching': <Database className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />,
+    'Architecture': <Cpu className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />,
+    'Third-Party Integrations': <Layers className="w-4 h-4 text-amber-600 dark:text-amber-400" />,
   };
 
   const allSkills: (SkillItem & { parentCategory: string })[] = skills.flatMap(cat =>
@@ -47,8 +43,8 @@ export default function Skills() {
       <div className="mb-16 sm:mb-20 overflow-hidden opacity-90 py-4 border-y border-slate-200 dark:border-white/5 bg-white/70 dark:bg-space-950/80">
         <ScrollVelocity
           texts={[
-            'REACT.JS ✦ LARAVEL ✦ TYPESCRIPT ✦ NODE.JS ✦ MYSQL ✦ POSTGRESQL ✦ REDIS QUEUES ✦',
-            '✦ MULTI-TENANT SAAS ✦ RESTFUL APIS ✦ STRIPE & PAYPAL ✦ GOOGLE & MS APIS ✦ RBAC ✦',
+            'LARAVEL ✦ NODE.JS ✦ REACT.JS ✦ TYPESCRIPT ✦ MYSQL ✦ POSTGRESQL ✦ REDIS ✦',
+            '✦ MULTI-TENANT SAAS ✦ RESTFUL APIS ✦ PAYMENT GATEWAYS ✦ WORKSPACE APIS ✦ RBAC ✦',
           ]}
           velocity={50}
           className="text-cyan-600/40 dark:text-cyan-300/40 font-mono text-2xl sm:text-4xl font-bold tracking-widest"

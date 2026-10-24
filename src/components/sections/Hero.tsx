@@ -124,7 +124,7 @@ export default function Hero() {
             </p>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed mb-8">
-              Full Stack Developer with 5+ years of experience across the complete development lifecycle — database schema design, RESTful API architecture, and frontend implementation — for multi-tenant SaaS platforms built on React, Node.js, and Laravel.
+              {personal.bioShort}
             </p>
 
             {/* Action Buttons */}
