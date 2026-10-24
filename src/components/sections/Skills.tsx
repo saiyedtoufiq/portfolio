@@ -112,55 +112,39 @@ export default function Skills() {
           })}
         </div>
 
-        {/* Skills Grid */}
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        {/* Skills Grid - Simple & Compact */}
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-3.5">
           <AnimatePresence>
             {filteredSkills.map(skill => (
               <motion.div
                 key={skill.name}
                 layout
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3 }}
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.25 }}
               >
                 <SpotlightCard
                   theme={isDark ? 'dark' : 'light'}
-                  spotlightColor={isDark ? 'rgba(34, 211, 238, 0.2)' : 'rgba(2, 132, 199, 0.15)'}
-                  className="p-5 rounded-2xl bg-white/80 dark:bg-space-950/80 border border-slate-200 dark:border-white/10 shadow-sm dark:shadow-none hover:border-cyan-500/40 transition-all flex flex-col justify-between h-full"
+                  spotlightColor={isDark ? 'rgba(34, 211, 238, 0.15)' : 'rgba(2, 132, 199, 0.12)'}
+                  className="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white/80 dark:bg-space-950/80 border border-slate-200 dark:border-white/10 shadow-sm dark:shadow-none hover:border-cyan-500/40 hover:bg-white dark:hover:bg-space-900 transition-all flex items-center justify-between gap-2.5 h-full group"
                 >
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono text-cyan-700 dark:text-cyan-300 bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-500/20 px-2.5 py-0.5 rounded-full">
-                        {skill.badge || skill.category}
-                      </span>
-                      <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
-                        {skill.proficiency}%
-                      </span>
+                  <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                    <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-space-900 border border-slate-200/80 dark:border-white/5 flex items-center justify-center flex-shrink-0 group-hover:scale-105 group-hover:border-cyan-500/30 transition-all text-cyan-600 dark:text-cyan-400">
+                      {categoryIcons[skill.parentCategory] || <Code className="w-4 h-4" />}
                     </div>
-
-                    <h4 className="text-base font-bold text-slate-900 dark:text-white tracking-wide">
-                      {skill.name}
-                    </h4>
-
-                    {/* Proficiency Bar */}
-                    <div className="w-full h-1.5 rounded-full bg-slate-200 dark:bg-space-850 overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.proficiency || 85}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, ease: 'easeOut' }}
-                        className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-indigo-600"
-                      />
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors leading-snug">
+                        {skill.name}
+                      </h4>
                     </div>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-slate-100 dark:border-white/5 flex items-center justify-between text-[11px] text-slate-500">
-                    <span className="truncate">{skill.parentCategory}</span>
-                    <span className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 flex-shrink-0">
-                      <CheckCircle className="w-3 h-3" /> Production
+                  {skill.badge && (
+                    <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded-full bg-cyan-50 dark:bg-cyan-950/70 text-cyan-700 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-500/20 flex-shrink-0">
+                      {skill.badge}
                     </span>
-                  </div>
+                  )}
                 </SpotlightCard>
               </motion.div>
             ))}
