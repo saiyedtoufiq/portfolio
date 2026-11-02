@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030712" />
+      <stop offset="50%" stop-color="#0b1329" />
+      <stop offset="100%" stop-color="#111c38" />
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+    <linearGradient id="chartFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0.0" />
+    </linearGradient>
+    <linearGradient id="violetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="750" fill="url(#bg)" />
+
+  <!-- Subtle Grid -->
+  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
+    <line x1="0" y1="100" x2="1200" y2="100" />
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="300" x2="1200" y2="300" />
+    <line x1="0" y1="400" x2="1200" y2="400" />
+    <line x1="0" y1="500" x2="1200" y2="500" />
+    <line x1="0" y1="600" x2="1200" y2="600" />
+    <line x1="200" y1="0" x2="200" y2="750" />
+    <line x1="400" y1="0" x2="400" y2="750" />
+    <line x1="600" y1="0" x2="600" y2="750" />
+    <line x1="800" y1="0" x2="800" y2="750" />
+    <line x1="1000" y1="0" x2="1000" y2="750" />
+  </g>
+
+  <!-- Glow Orbs -->
+  <circle cx="950" cy="150" r="220" fill="#06b6d4" fill-opacity="0.08" />
+  <circle cx="250" cy="600" r="260" fill="#6366f1" fill-opacity="0.08" />
+
+  <!-- Browser Window Frame -->
+  <rect x="40" y="36" width="1120" height="678" rx="20" fill="#070d1e" stroke="#1e293b" stroke-width="2" />
+  <rect x="40" y="36" width="1120" height="48" rx="20" fill="#0f172a" />
+  <circle cx="72" cy="60" r="7" fill="#f43f5e" />
+  <circle cx="94" cy="60" r="7" fill="#f59e0b" />
+  <circle cx="116" cy="60" r="7" fill="#10b981" />
+  <rect x="380" y="46" width="440" height="28" rx="8" fill="#030712" stroke="#1e293b" />
+  <text x="600" y="65" fill="#94a3b8" font-family="monospace" font-size="12" text-anchor="middle">https://app.enterprise-portal.io/dashboard/overview</text>
+
+  <!-- Sidebar -->
+  <rect x="40" y="84" width="220" height="630" fill="#060b19" stroke="#1e293b" stroke-width="1" />
+  <rect x="64" y="110" width="32" height="32" rx="8" fill="url(#cyanGrad)" />
+  <text x="108" y="131" fill="#f8fafc" font-family="sans-serif" font-weight="bold" font-size="15">CORE SUITE</text>
+
+  <!-- Sidebar Menu Items -->
+  <rect x="56" y="168" width="188" height="40" rx="10" fill="#06b6d4" fill-opacity="0.15" stroke="#22d3ee" stroke-opacity="0.4" />
+  <text x="80" y="193" fill="#22d3ee" font-family="sans-serif" font-size="13" font-weight="bold">●  Executive Overview</text>
+  <text x="80" y="240" fill="#64748b" font-family="sans-serif" font-size="13">○  Tenant Workspaces</text>
+  <text x="80" y="282" fill="#64748b" font-family="sans-serif" font-size="13">○  Order Pipelines</text>
+  <text x="80" y="324" fill="#64748b" font-family="sans-serif" font-size="13">○  Form Engine</text>
+  <text x="80" y="366" fill="#64748b" font-family="sans-serif" font-size="13">○  RBAC Permissions</text>
+  <text x="80" y="408" fill="#64748b" font-family="sans-serif" font-size="13">○  Queue Telemetry</text>
+  <text x="80" y="450" fill="#64748b" font-family="sans-serif" font-size="13">○  Audit Logs</text>
+
+  <rect x="56" y="610" width="188" height="76" rx="12" fill="#0f172a" stroke="#1e293b" />
+  <text x="72" y="636" fill="#94a3b8" font-family="monospace" font-size="11">CLUSTER STATUS</text>
+  <circle cx="78" cy="658" r="5" fill="#10b981" />
+  <text x="92" y="662" fill="#10b981" font-family="monospace" font-size="12" font-weight="bold">99.98% Uptime</text>
+
+  <!-- Main Content Header -->
+  <text x="292" y="128" fill="#f8fafc" font-family="sans-serif" font-size="22" font-weight="bold">Multi-Tenant Control Plane</text>
+  <text x="292" y="150" fill="#64748b" font-family="monospace" font-size="12">Real-time operational metrics, active tenant queues &amp; throughput analysis</text>
+  <rect x="980" y="106" width="148" height="36" rx="10" fill="url(#cyanGrad)" />
+  <text x="1054" y="129" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">+ New Deployment</text>
+
+  <!-- 4 KPI Cards -->
+  <g transform="translate(292, 174)">
+    <rect width="196" height="108" rx="14" fill="#0f172a" stroke="#1e293b" />
+    <text x="20" y="30" fill="#94a3b8" font-family="monospace" font-size="11">ACTIVE TENANTS</text>
+    <text x="20" y="68" fill="#f8fafc" font-family="sans-serif" font-size="28" font-weight="bold">1,428</text>
+    <text x="20" y="92" fill="#10b981" font-family="monospace" font-size="11">▲ +18.4% this month</text>
+  </g>
+  <g transform="translate(505, 174)">
+    <rect width="196" height="108" rx="14" fill="#0f172a" stroke="#1e293b" />
+    <text x="20" y="30" fill="#94a3b8" font-family="monospace" font-size="11">AVG API LATENCY</text>
+    <text x="20" y="68" fill="#22d3ee" font-family="sans-serif" font-size="28" font-weight="bold">34.2ms</text>
+    <text x="20" y="92" fill="#10b981" font-family="monospace" font-size="11">▼ -60% via Redis</text>
+  </g>
+  <g transform="translate(718, 174)">
+    <rect width="196" height="108" rx="14" fill="#0f172a" stroke="#1e293b" />
+    <text x="20" y="30" fill="#94a3b8" font-family="monospace" font-size="11">DAILY TRANSACTIONS</text>
+    <text x="20" y="68" fill="#f8fafc" font-family="sans-serif" font-size="28" font-weight="bold">89.4K</text>
+    <text x="20" y="92" fill="#818cf8" font-family="monospace" font-size="11">● Zero dropped jobs</text>
+  </g>
+  <g transform="translate(931, 174)">
+    <rect width="196" height="108" rx="14" fill="#0f172a" stroke="#1e293b" />
+    <text x="20" y="30" fill="#94a3b8" font-family="monospace" font-size="11">CACHE HIT RATIO</text>
+    <text x="20" y="68" fill="#a855f7" font-family="sans-serif" font-size="28" font-weight="bold">98.7%</text>
+    <text x="20" y="92" fill="#10b981" font-family="monospace" font-size="11">▲ Multi-tier warm</text>
+  </g>
+
+  <!-- Main Area Chart Panel -->
+  <rect x="292" y="302" width="540" height="230" rx="16" fill="#0f172a" stroke="#1e293b" />
+  <text x="316" y="334" fill="#f8fafc" font-family="sans-serif" font-size="15" font-weight="bold">Throughput &amp; Request Velocity (req/sec)</text>
+  <text x="740" y="334" fill="#22d3ee" font-family="monospace" font-size="11">LIVE STREAM</text>
+
+  <!-- Chart Path -->
+  <path d="M 316 490 L 316 440 Q 370 400, 410 420 T 500 375 T 590 390 T 680 350 T 760 365 L 805 335 L 805 490 Z" fill="url(#chartFill)" />
+  <path d="M 316 440 Q 370 400, 410 420 T 500 375 T 590 390 T 680 350 T 760 365 L 805 335" fill="none" stroke="#22d3ee" stroke-width="3" />
+  <circle cx="500" cy="375" r="5" fill="#22d3ee" />
+  <circle cx="680" cy="350" r="5" fill="#22d3ee" />
+  <circle cx="805" cy="335" r="6" fill="#ffffff" stroke="#22d3ee" stroke-width="3" />
+
+  <!-- Right Side Resource Allocation Panel -->
+  <rect x="850" y="302" width="277" height="230" rx="16" fill="#0f172a" stroke="#1e293b" />
+  <text x="874" y="334" fill="#f8fafc" font-family="sans-serif" font-size="15" font-weight="bold">Worker Queue Pools</text>
+
+  <text x="874" y="370" fill="#94a3b8" font-family="monospace" font-size="11">high-priority-orders (84%)</text>
+  <rect x="874" y="378" width="228" height="8" rx="4" fill="#1e293b" />
+  <rect x="874" y="378" width="192" height="8" rx="4" fill="url(#cyanGrad)" />
+
+  <text x="874" y="418" fill="#94a3b8" font-family="monospace" font-size="11">calendar-sync-webhooks (62%)</text>
+  <rect x="874" y="426" width="228" height="8" rx="4" fill="#1e293b" />
+  <rect x="874" y="426" width="142" height="8" rx="4" fill="url(#violetGrad)" />
+
+  <text x="874" y="466" fill="#94a3b8" font-family="monospace" font-size="11">notifications-fcm (91%)</text>
+  <rect x="874" y="474" width="228" height="8" rx="4" fill="#1e293b" />
+  <rect x="874" y="474" width="208" height="8" rx="4" fill="#10b981" />
+
+  <!-- Bottom Table Preview -->
+  <rect x="292" y="550" width="835" height="140" rx="16" fill="#0f172a" stroke="#1e293b" />
+  <text x="316" y="580" fill="#f8fafc" font-family="sans-serif" font-size="14" font-weight="bold">Recent Tenant Provisioning &amp; Workflow Executions</text>
+  <line x1="316" y1="594" x2="1100" y2="594" stroke="#1e293b" />
+  <text x="316" y="618" fill="#22d3ee" font-family="monospace" font-size="12">TENANT-0942</text>
+  <text x="460" y="618" fill="#e2e8f0" font-family="sans-serif" font-size="12">Enterprise Booking Pipeline</text>
+  <text x="740" y="618" fill="#94a3b8" font-family="monospace" font-size="12">MySQL + Redis Cluster</text>
+  <rect x="990" y="603" width="90" height="22" rx="6" fill="#10b981" fill-opacity="0.15" />
+  <text x="1035" y="618" fill="#10b981" font-family="monospace" font-size="11" text-anchor="middle">COMPLETED</text>
+
+  <text x="316" y="652" fill="#818cf8" font-family="monospace" font-size="12">TENANT-0941</text>
+  <text x="460" y="652" fill="#e2e8f0" font-family="sans-serif" font-size="12">Dynamic Form Schema Sync</text>
+  <text x="740" y="652" fill="#94a3b8" font-family="monospace" font-size="12">Horizon Worker #04</text>
+  <rect x="990" y="637" width="90" height="22" rx="6" fill="#06b6d4" fill-opacity="0.15" />
+  <text x="1035" y="652" fill="#22d3ee" font-family="monospace" font-size="11" text-anchor="middle">ACTIVE</text>
+</svg>
+

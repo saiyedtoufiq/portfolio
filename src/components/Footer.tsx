@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { portfolioData } from '../../data/portfolio';
 import { Github, Linkedin, Mail, ArrowUp } from 'lucide-react';
 
@@ -17,7 +18,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Brand Info */}
           <div className="text-center md:text-left">
-            <a href="#home" className="inline-flex items-center gap-2 group">
+            <Link href="/#home" className="inline-flex items-center gap-2 group">
               <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-cyan-500 to-violet-600 p-[1px]">
                 <div className="w-full h-full rounded-full bg-white dark:bg-space-950 flex items-center justify-center">
                   <span className="font-mono text-[10px] font-bold text-cyan-600 dark:text-cyan-400">TR</span>
@@ -26,7 +27,7 @@ export default function Footer() {
               <span className="text-sm font-bold text-slate-900 dark:text-white tracking-wider">
                 {personal.name}
               </span>
-            </a>
+            </Link>
             <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-400 max-w-sm">
               Architecting scalable backend ecosystems and modern web experiences.
             </p>
@@ -35,13 +36,13 @@ export default function Footer() {
           {/* Quick Nav Links */}
           <div className="flex flex-wrap justify-center gap-6 text-xs font-mono text-slate-600 dark:text-slate-400">
             {navigation.map(link => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                href={`/${link.href}`}
                 className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -86,10 +87,10 @@ export default function Footer() {
 
         <div className="mt-8 pt-6 border-t border-slate-200 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-slate-400 gap-4">
           <p>
-            &copy; {new Date().getFullYear()} {personal.name}. Crafted with Next.js, TypeScript & React Bits.
+            &copy; {new Date().getFullYear()} {personal.name}. Crafted with Next.js, TypeScript &amp; React Bits.
           </p>
           <p className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
-            Engineered for high performance, accessibility & SEO.
+            Engineered for high performance, accessibility &amp; SEO.
           </p>
         </div>
       </div>
