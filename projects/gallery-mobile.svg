@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030712" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <linearGradient id="phoneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="url(#bg5)" />
+  <circle cx="380" cy="375" r="280" fill="#22d3ee" fill-opacity="0.08" />
+  <circle cx="820" cy="375" r="280" fill="#a855f7" fill-opacity="0.08" />
+
+  <!-- Left Phone Mockup -->
+  <rect x="180" y="70" width="320" height="610" rx="42" fill="#070d1e" stroke="#334155" stroke-width="4" />
+  <rect x="290" y="90" width="100" height="18" rx="9" fill="#030712" />
+  <text x="340" y="146" fill="#22d3ee" font-family="monospace" font-size="11" text-anchor="middle">MOBILE CLIENT // JWT AUTH</text>
+  <text x="340" y="176" fill="#f8fafc" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Active Promises &amp; Tasks</text>
+
+  <!-- Phone Cards -->
+  <rect x="208" y="204" width="264" height="110" rx="18" fill="url(#phoneGrad)" />
+  <text x="228" y="236" fill="#ffffff" font-family="monospace" font-size="11">STREAK: 28 DAYS</text>
+  <text x="228" y="264" fill="#ffffff" font-family="sans-serif" font-size="17" font-weight="bold">Sprint Delivery Goal</text>
+  <text x="228" y="292" fill="#e0f2fe" font-family="sans-serif" font-size="12">94% Milestones Completed</text>
+
+  <rect x="208" y="334" width="264" height="90" rx="16" fill="#0f172a" stroke="#1e293b" />
+  <text x="228" y="366" fill="#f8fafc" font-family="sans-serif" font-size="14" font-weight="bold">QR Attendance Verified</text>
+  <text x="228" y="392" fill="#10b981" font-family="monospace" font-size="11">✓ Scanned at 09:02 AM • Campus A</text>
+
+  <rect x="208" y="442" width="264" height="90" rx="16" fill="#0f172a" stroke="#1e293b" />
+  <text x="228" y="474" fill="#f8fafc" font-family="sans-serif" font-size="14" font-weight="bold">Tournament Certificate Ready</text>
+  <text x="228" y="500" fill="#22d3ee" font-family="monospace" font-size="11">⬇ Instant PDF Generated</text>
+
+  <rect x="208" y="556" width="264" height="84" rx="16" fill="#0f172a" stroke="#22d3ee" stroke-opacity="0.4" />
+  <text x="228" y="586" fill="#22d3ee" font-family="monospace" font-size="11">🔔 FCM PUSH DISPATCHED</text>
+  <text x="228" y="612" fill="#cbd5e1" font-family="sans-serif" font-size="12">Real-time sync across iOS &amp; Android</text>
+
+  <!-- Right Panel: API & Push Notification Telemetry -->
+  <rect x="560" y="110" width="540" height="530" rx="24" fill="#070d1e" stroke="#1e293b" stroke-width="2" />
+  <text x="600" y="162" fill="#f8fafc" font-family="sans-serif" font-size="22" font-weight="bold">Mobile Backend &amp; FCM Push Engine</text>
+  <text x="600" y="188" fill="#64748b" font-family="monospace" font-size="12">Versioned REST APIs • Token Rotation • Real-Time Device Sync</text>
+
+  <rect x="600" y="216" width="460" height="170" rx="14" fill="#030712" stroke="#1e293b" />
+  <text x="624" y="246" fill="#22d3ee" font-family="monospace" font-size="12">POST /api/v1/notifications/dispatch</text>
+  <text x="624" y="274" fill="#10b981" font-family="monospace" font-size="12">HTTP/2 200 OK • 18.4ms</text>
+  <text x="624" y="304" fill="#e2e8f0" font-family="monospace" font-size="11">{"status": "dispatched", "provider": "firebase_fcm",</text>
+  <text x="624" y="326" fill="#e2e8f0" font-family="monospace" font-size="11"> "devices_reached": 1240, "delivery_rate": "99.8%",</text>
+  <text x="624" y="348" fill="#e2e8f0" font-family="monospace" font-size="11"> "queue_worker": "redis-horizon-02"}</text>
+
+  <rect x="600" y="410" width="220" height="190" rx="16" fill="#0f172a" stroke="#1e293b" />
+  <text x="624" y="446" fill="#94a3b8" font-family="monospace" font-size="11">AUTH SECURITY</text>
+  <text x="624" y="478" fill="#f8fafc" font-family="sans-serif" font-size="18" font-weight="bold">JWT + Sanctum</text>
+  <text x="624" y="512" fill="#cbd5e1" font-family="sans-serif" font-size="12">• Refresh Token Rotation</text>
+  <text x="624" y="536" fill="#cbd5e1" font-family="sans-serif" font-size="12">• Role-Scoped Claims</text>
+  <text x="624" y="560" fill="#10b981" font-family="monospace" font-size="11">✓ Zero Unauthorized Hits</text>
+
+  <rect x="840" y="410" width="220" height="190" rx="16" fill="#0f172a" stroke="#1e293b" />
+  <text x="864" y="446" fill="#94a3b8" font-family="monospace" font-size="11">QR &amp; MEDIA ENGINE</text>
+  <text x="864" y="478" fill="#f8fafc" font-family="sans-serif" font-size="18" font-weight="bold">Instant Verify</text>
+  <text x="864" y="512" fill="#cbd5e1" font-family="sans-serif" font-size="12">• Contactless QR Scan</text>
+  <text x="864" y="536" fill="#cbd5e1" font-family="sans-serif" font-size="12">• Auto PDF Certificates</text>
+  <text x="864" y="560" fill="#22d3ee" font-family="monospace" font-size="11">✓ Sub-second Generation</text>
+</svg>
+
