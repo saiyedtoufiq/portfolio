@@ -1,11 +1,20 @@
 import type { Metadata, Viewport } from 'next';
-import { Outfit, JetBrains_Mono } from 'next/font/google';
+import { Plus_Jakarta_Sans, Instrument_Serif, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { portfolioData } from '../../data/portfolio';
+import { Providers } from '../components/Providers';
 
-const outfit = Outfit({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   variable: '--font-outfit',
+  display: 'swap',
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
+  variable: '--font-serif',
   display: 'swap',
 });
 
@@ -16,7 +25,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: '#030712',
+  themeColor: '#05070f',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -66,9 +75,7 @@ export const metadata: Metadata = {
     images: ['/favicon.png'],
   },
   icons: {
-    icon: [
-      { url: '/favicon.png', type: 'image/png' },
-    ],
+    icon: [{ url: '/favicon.png', type: 'image/png' }],
     shortcut: '/favicon.png',
     apple: '/favicon.png',
   },
@@ -77,8 +84,6 @@ export const metadata: Metadata = {
     follow: true,
   },
 };
-
-import { Providers } from '../components/Providers';
 
 export default function RootLayout({
   children,
@@ -90,10 +95,10 @@ export default function RootLayout({
       <head>
         <link rel="icon" href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/favicon.png`} type="image/png" />
       </head>
-      <body className={`${outfit.variable} ${jetbrainsMono.variable} font-sans min-h-screen selection:bg-cyan-500 selection:text-space-950 transition-colors duration-300`}>
-        <Providers>
-          {children}
-        </Providers>
+      <body
+        className={`${jakarta.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} font-sans antialiased min-h-screen selection:bg-sky-400/30 selection:text-white transition-colors duration-500`}
+      >
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

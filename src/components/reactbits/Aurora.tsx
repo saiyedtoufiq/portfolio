@@ -339,7 +339,15 @@ const Aurora = ({
     const parse = (value: string): number[] => {
       const cached = cache.get(value);
       if (cached) return cached;
-      let rgb = [1, 1, 1];
+      let rgb = [0.02, 0.56, 0.7];
+      const hex = /^#?([0-9a-f]{3}|[0-9a-f]{6})$/i.exec(value.trim());
+      if (hex) {
+        const h = hex[1].length === 3 ? hex[1].split('').map(c => c + c).join('') : hex[1];
+        const n = parseInt(h, 16);
+        rgb = [((n >> 16) & 255) / 255, ((n >> 8) & 255) / 255, (n & 255) / 255];
+        cache.set(value, rgb);
+        return rgb;
+      }
       if (probe) {
         probe.clearRect(0, 0, 1, 1);
         probe.fillStyle = '#ffffff';

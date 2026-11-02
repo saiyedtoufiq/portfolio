@@ -14,7 +14,7 @@ import ClickSpark from '../components/reactbits/ClickSpark';
 export default function Home() {
   return (
     <ClickSpark
-      sparkColor={['#22d3ee', '#818cf8', '#c084fc']}
+      sparkColor={['#38bdf8', '#818cf8', '#c084fc']}
       sparkSize={12}
       sparkRadius={26}
       sparkCount={7}
@@ -22,12 +22,12 @@ export default function Home() {
       extraScale={1}
       shape="streak"
     >
-      <div className="min-h-screen flex flex-col relative bg-transparent text-slate-900 dark:text-slate-100 transition-colors duration-300">
-        {/* Right-Side Vertical Navigation Rail with Theme Switcher & Progress */}
+      <div className="min-h-screen w-full flex flex-col relative bg-slate-50 dark:bg-space-950 text-slate-900 dark:text-slate-100 transition-colors duration-500">
+        {/* Right-Side Vertical Navigation Rail */}
         <RightVerticalNav />
 
-        {/* Main Content Area */}
-        <main className="flex-1 pr-8 sm:pr-12 md:pr-16 lg:pr-20">
+        {/* Full-bleed Main Content Area (no right margin cut-off) */}
+        <main className="flex-1 w-full">
           <Hero />
           <About />
           <Skills />

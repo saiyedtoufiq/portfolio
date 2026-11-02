@@ -13,33 +13,31 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-slate-100 dark:bg-space-950 border-t border-slate-200 dark:border-white/10 py-12 relative overflow-hidden transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+    <footer className="py-12 relative overflow-hidden transition-colors duration-500">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="p-6 sm:p-8 rounded-[32px] liquid-glass flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand Info */}
           <div className="text-center md:text-left">
-            <Link href="/#home" className="inline-flex items-center gap-2 group">
-              <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-cyan-500 to-violet-600 p-[1px]">
-                <div className="w-full h-full rounded-full bg-white dark:bg-space-950 flex items-center justify-center">
-                  <span className="font-mono text-[10px] font-bold text-cyan-600 dark:text-cyan-400">TR</span>
-                </div>
-              </div>
-              <span className="text-sm font-bold text-slate-900 dark:text-white tracking-wider">
-                {personal.name}
+            <Link href="/#home" className="inline-flex items-center gap-2.5 group">
+              <span className="text-base font-bold text-slate-900 dark:text-white">
+                {personal.firstName}{' '}
+                <span className="font-serif italic font-normal text-sky-600 dark:text-sky-300">
+                  {personal.lastName}
+                </span>
               </span>
             </Link>
-            <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-400 max-w-sm">
-              Architecting scalable backend ecosystems and modern web experiences.
+            <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+              &copy; {new Date().getFullYear()} {personal.name}. All rights reserved.
             </p>
           </div>
 
           {/* Quick Nav Links */}
-          <div className="flex flex-wrap justify-center gap-6 text-xs font-mono text-slate-600 dark:text-slate-400">
+          <div className="flex flex-wrap justify-center gap-6 text-xs font-medium text-slate-600 dark:text-slate-300">
             {navigation.map(link => (
               <Link
                 key={link.name}
                 href={`/${link.href}`}
-                className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+                className="hover:text-sky-500 dark:hover:text-sky-300 transition-colors"
               >
                 {link.name}
               </Link>
@@ -47,13 +45,13 @@ export default function Footer() {
           </div>
 
           {/* Social Icons & Back to Top */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
             <a
               href={personal.social.github}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
-              className="p-2.5 rounded-full bg-slate-200/80 dark:bg-white/5 hover:bg-slate-300 dark:hover:bg-white/10 text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all"
+              className="p-2.5 rounded-full liquid-pill text-slate-700 dark:text-slate-200 hover:text-sky-500 transition-all"
             >
               <Github className="w-4 h-4" />
             </a>
@@ -62,14 +60,14 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              className="p-2.5 rounded-full bg-slate-200/80 dark:bg-white/5 hover:bg-slate-300 dark:hover:bg-white/10 text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all"
+              className="p-2.5 rounded-full liquid-pill text-slate-700 dark:text-slate-200 hover:text-sky-500 transition-all"
             >
               <Linkedin className="w-4 h-4" />
             </a>
             <a
               href={personal.social.email}
               aria-label="Email"
-              className="p-2.5 rounded-full bg-slate-200/80 dark:bg-white/5 hover:bg-slate-300 dark:hover:bg-white/10 text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all"
+              className="p-2.5 rounded-full liquid-pill text-slate-700 dark:text-slate-200 hover:text-sky-500 transition-all"
             >
               <Mail className="w-4 h-4" />
             </a>
@@ -77,21 +75,12 @@ export default function Footer() {
             <button
               onClick={scrollToTop}
               aria-label="Scroll to Top"
-              className="p-2.5 rounded-full bg-gradient-to-r from-cyan-600 to-indigo-600 text-white shadow-md shadow-cyan-600/20 hover:scale-105 active:scale-95 transition-all ml-2"
+              className="p-2.5 rounded-full liquid-button-primary text-white ml-1"
               title="Return to top"
             >
               <ArrowUp className="w-4 h-4" />
             </button>
           </div>
-        </div>
-
-        <div className="mt-8 pt-6 border-t border-slate-200 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-slate-400 gap-4">
-          <p>
-            &copy; {new Date().getFullYear()} {personal.name}. Crafted with Next.js, TypeScript &amp; React Bits.
-          </p>
-          <p className="font-mono text-[11px] text-slate-500 dark:text-slate-400">
-            Engineered for high performance, accessibility &amp; SEO.
-          </p>
         </div>
       </div>
     </footer>
