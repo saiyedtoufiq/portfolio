@@ -284,7 +284,7 @@ export const portfolioData: PortfolioData = {
           title: 'Multi-Tenant Executive Control Plane',
           caption: 'Real-time overview of active tenant workspaces, order velocity, cache hit ratios, and worker pool utilization.',
           tag: 'Dashboard UI',
-          imageUrl: `${basePath}/projects/gallery-dashboard.svg`,
+          imageUrl: `${basePath}/projects/1/dashboard.png`,
           featured: true,
         },
         {
@@ -292,7 +292,7 @@ export const portfolioData: PortfolioData = {
           title: 'Visual Dynamic Form & Workflow Builder',
           caption: 'Drag-and-drop schema designer allowing tenant admins to configure custom booking steps, payment blocks, and conditional rules.',
           tag: 'Workflow Engine',
-          imageUrl: `${basePath}/projects/gallery-builder.svg`,
+          imageUrl: `${basePath}/projects/1/formbuilder.png`,
         },
         {
           id: 'ordgrow-3',
