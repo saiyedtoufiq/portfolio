@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 import { Moon, Sun, ArrowUp, Menu, X } from 'lucide-react';
@@ -19,7 +19,38 @@ export default function RightVerticalNav() {
   const [activeSection, setActiveSection] = useState('home');
   const [scrollProgress, setScrollProgress] = useState(0);
   const [hoveredSection, setHoveredSection] = useState<string | null>(null);
+  const [wheelPreviewSection, setWheelPreviewSection] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navRef = useRef<HTMLElement | null>(null);
+  const activeSectionRef = useRef(activeSection);
+  const programmaticScrollUntilRef = useRef(0);
+  const wheelPreviewTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    activeSectionRef.current = activeSection;
+  }, [activeSection]);
+
+  const scrollTo = useCallback((id: string, showPreview = false) => {
+    const el = document.getElementById(id);
+    if (el) {
+      activeSectionRef.current = id;
+      setActiveSection(id);
+      programmaticScrollUntilRef.current = performance.now() + 750;
+      el.scrollIntoView({ behavior: 'smooth' });
+
+      if (showPreview) {
+        setWheelPreviewSection(id);
+        if (wheelPreviewTimeoutRef.current) {
+          clearTimeout(wheelPreviewTimeoutRef.current);
+        }
+        wheelPreviewTimeoutRef.current = setTimeout(() => {
+          setWheelPreviewSection(null);
+        }, 950);
+      }
+    }
+    setMobileMenuOpen(false);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,16 +61,18 @@ export default function RightVerticalNav() {
           : 0;
       setScrollProgress(progress);
 
-      const scrollPos = window.scrollY + 250;
-      for (const sec of sectionList) {
+      // Avoid overwriting activeSection mid-flight when user just wheeled/clicked to a section
+      if (performance.now() < programmaticScrollUntilRef.current) {
+        return;
+      }
+
+      const scrollPos = window.scrollY + window.innerHeight * 0.35;
+      for (let i = sectionList.length - 1; i >= 0; i--) {
+        const sec = sectionList[i];
         const el = document.getElementById(sec.id);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(sec.id);
-            break;
-          }
+        if (el && scrollPos >= el.offsetTop) {
+          setActiveSection(sec.id);
+          break;
         }
       }
     };
@@ -49,19 +82,66 @@ export default function RightVerticalNav() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-    setMobileMenuOpen(false);
-  };
+  // Change sections when scrolling the mouse wheel / trackpad over the side navigation
+  useEffect(() => {
+    const navEl = navRef.current;
+    if (!navEl) return;
+
+    let deltaAccumulator = 0;
+    let lastStepTime = 0;
+    let resetDeltaTimeout: ReturnType<typeof setTimeout> | null = null;
+
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const now = performance.now();
+      deltaAccumulator += e.deltaY;
+
+      if (resetDeltaTimeout) clearTimeout(resetDeltaTimeout);
+      resetDeltaTimeout = setTimeout(() => {
+        deltaAccumulator = 0;
+      }, 180);
+
+      // Cooldown between section jumps so a single scroll gesture steps cleanly one section at a time
+      if (now - lastStepTime < 360 || Math.abs(deltaAccumulator) < 24) {
+        return;
+      }
+
+      const direction = deltaAccumulator > 0 ? 1 : -1;
+      deltaAccumulator = 0;
+      lastStepTime = now;
+
+      const currentIndex = sectionList.findIndex(sec => sec.id === activeSectionRef.current);
+      const safeIndex = currentIndex === -1 ? 0 : currentIndex;
+      const nextIndex = Math.min(sectionList.length - 1, Math.max(0, safeIndex + direction));
+
+      if (nextIndex !== safeIndex) {
+        scrollTo(sectionList[nextIndex].id, true);
+      } else {
+        // Still flash the boundary section label so user gets tactile feedback
+        setWheelPreviewSection(sectionList[safeIndex].id);
+        if (wheelPreviewTimeoutRef.current) clearTimeout(wheelPreviewTimeoutRef.current);
+        wheelPreviewTimeoutRef.current = setTimeout(() => {
+          setWheelPreviewSection(null);
+        }, 700);
+      }
+    };
+
+    navEl.addEventListener('wheel', handleWheel, { passive: false });
+    return () => {
+      navEl.removeEventListener('wheel', handleWheel);
+      if (resetDeltaTimeout) clearTimeout(resetDeltaTimeout);
+      if (wheelPreviewTimeoutRef.current) clearTimeout(wheelPreviewTimeoutRef.current);
+    };
+  }, [scrollTo]);
 
   return (
     <>
-      {/* Desktop Only: Right Vertical Liquid Glass Navigation Spine (hidden on mobile/tablet so it never blocks content) */}
+      {/* Desktop Only: Right Vertical Liquid Glass Navigation Spine */}
       <nav
-        aria-label="Vertical Page Navigation"
+        ref={navRef}
+        aria-label="Vertical Page Navigation (Scroll wheel to switch sections)"
         className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col items-center select-none"
       >
         <div className="h-[68vh] min-h-[520px] max-h-[720px] py-6 px-3.5 rounded-full liquid-glass flex flex-col justify-between items-center relative transition-all duration-300">
@@ -107,6 +187,7 @@ export default function RightVerticalNav() {
             {sectionList.map(sec => {
               const isActive = activeSection === sec.id;
               const isHovered = hoveredSection === sec.id;
+              const showTooltip = isHovered || wheelPreviewSection === sec.id;
 
               return (
                 <div
@@ -115,15 +196,15 @@ export default function RightVerticalNav() {
                   onMouseEnter={() => setHoveredSection(sec.id)}
                   onMouseLeave={() => setHoveredSection(null)}
                 >
-                  {/* Floating Glass Label on Hover */}
+                  {/* Floating Glass Label on Hover or Wheel Step */}
                   <AnimatePresence>
-                    {isHovered && (
+                    {showTooltip && (
                       <motion.div
                         initial={{ opacity: 0, x: 10, scale: 0.95 }}
                         animate={{ opacity: 1, x: 0, scale: 1 }}
                         exit={{ opacity: 0, x: 10, scale: 0.95 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute right-12 whitespace-nowrap pointer-events-none z-50 flex items-center gap-2 px-3.5 py-1.5 rounded-full liquid-glass text-xs font-medium text-slate-800 dark:text-white shadow-xl"
+                        className="absolute right-full mr-5 whitespace-nowrap pointer-events-none z-50 flex items-center gap-2 px-3.5 py-1.5 rounded-full liquid-glass text-xs font-medium text-slate-800 dark:text-white shadow-xl"
                       >
                         <span className="font-serif italic text-sky-500 dark:text-sky-300">
                           {sec.index}
@@ -156,7 +237,7 @@ export default function RightVerticalNav() {
           {/* Bottom: Return to Top & Progress */}
           <div className="pt-3 border-t border-slate-200/70 dark:border-white/10 w-full flex flex-col items-center gap-1.5">
             <button
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              onClick={() => scrollTo('home')}
               aria-label="Scroll to top"
               className="w-8 h-8 rounded-full liquid-pill flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-300 transition-colors"
               title="Scroll to top"
@@ -244,10 +325,7 @@ export default function RightVerticalNav() {
                     Scroll {scrollProgress}%
                   </span>
                   <button
-                    onClick={() => {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                      setMobileMenuOpen(false);
-                    }}
+                    onClick={() => scrollTo('home')}
                     className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full liquid-pill text-[11px] font-medium text-sky-600 dark:text-sky-300"
                   >
                     <ArrowUp className="w-3 h-3" />
