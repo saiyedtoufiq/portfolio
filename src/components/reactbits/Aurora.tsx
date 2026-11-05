@@ -284,7 +284,7 @@ const Aurora = ({
   style
 }: AuroraProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+
   const wakeRef = useRef<(() => void) | null>(null);
   const stops = (Array.isArray(colorStops) ? colorStops : []).filter(Boolean).map(String).slice(0, MAX_STOPS);
   const settings: Settings = {
@@ -311,7 +311,9 @@ const Aurora = ({
 
   useEffect(() => {
     const container = containerRef.current;
-    const canvas = canvasRef.current;
+    const canvas = document.createElement('canvas');
+    canvas.className = 'absolute inset-0 block h-full w-full';
+    canvas.setAttribute('aria-hidden', 'true');
     const gl = canvas?.getContext('webgl2', {
       alpha: true,
       premultipliedAlpha: true,
@@ -323,6 +325,7 @@ const Aurora = ({
 
     const program = link(gl);
     if (!program) return undefined;
+    container.appendChild(canvas);
     const u = program.uniforms;
 
     const buffer = gl.createBuffer();
@@ -517,6 +520,7 @@ const Aurora = ({
       gl.deleteProgram(program.program);
       gl.deleteBuffer(buffer);
       gl.deleteVertexArray(vao);
+      canvas.remove();
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
   }, []);
@@ -531,7 +535,7 @@ const Aurora = ({
       className={['relative h-full w-full overflow-hidden', className].filter(Boolean).join(' ')}
       style={style}
     >
-      <canvas ref={canvasRef} className="absolute inset-0 block h-full w-full" aria-hidden="true" />
+
     </div>
   );
 };

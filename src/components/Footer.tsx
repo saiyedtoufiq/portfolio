@@ -14,7 +14,7 @@ export default function Footer() {
 
   return (
     <footer className="py-12 relative overflow-hidden transition-colors duration-500">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 lg:pr-20">
         <div className="p-6 sm:p-8 rounded-[32px] liquid-glass flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand Info */}
           <div className="text-center md:text-left">

@@ -114,25 +114,25 @@ export default function Hero() {
             </div>
 
             {/* Soft Glass Metrics Row */}
-            <div className="mt-12 grid grid-cols-3 gap-4 sm:gap-6 w-full max-w-lg">
-              <div className="p-4 rounded-2xl liquid-glass-card text-left">
-                <span className="block font-serif italic text-3xl text-slate-900 dark:text-white">
+            <div className="mt-12 grid grid-cols-3 gap-2.5 sm:gap-6 w-full max-w-lg">
+              <div className="p-3.5 sm:p-4 rounded-2xl liquid-glass-card text-left">
+                <span className="block font-serif italic text-2xl sm:text-3xl text-slate-900 dark:text-white">
                   5+ yrs
                 </span>
                 <span className="text-xs text-slate-600 dark:text-slate-300">
                   Production Craft
                 </span>
               </div>
-              <div className="p-4 rounded-2xl liquid-glass-card text-left">
-                <span className="block font-serif italic text-3xl text-sky-600 dark:text-sky-300">
+              <div className="p-3.5 sm:p-4 rounded-2xl liquid-glass-card text-left">
+                <span className="block font-serif italic text-2xl sm:text-3xl text-sky-600 dark:text-sky-300">
                   ~60%
                 </span>
                 <span className="text-xs text-slate-600 dark:text-slate-300">
                   Faster APIs
                 </span>
               </div>
-              <div className="p-4 rounded-2xl liquid-glass-card text-left">
-                <span className="block font-serif italic text-3xl text-indigo-600 dark:text-indigo-300">
+              <div className="p-3.5 sm:p-4 rounded-2xl liquid-glass-card text-left">
+                <span className="block font-serif italic text-2xl sm:text-3xl text-indigo-600 dark:text-indigo-300">
                   15+
                 </span>
                 <span className="text-xs text-slate-600 dark:text-slate-300">
